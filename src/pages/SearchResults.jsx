@@ -1,4 +1,4 @@
-import Home from "./HomeSearch"
+import Home from "./Home"
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -13,11 +13,7 @@ const Results = () => {
     async function fetchShows() {
         const response = await fetch (`https://api.nytimes.com/svc/books/v3/reviews.json?author=Stephen+King&api-key=SlheFCnWidTnyJMGcupkk6FkcZYvN62F`)
         const data = await response.json();
-        // console.log("data title", data.docs[0].title)
-        // console.log("data cover", data.docs[0].cover_i)
-        // console.log("data subject", data.docs[0].subject)
         console.log("data all", data)
-        setResult(data.docs)
     }
     useEffect(() => {
         fetchShows()
