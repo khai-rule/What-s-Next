@@ -11,27 +11,23 @@ const Results = () => {
     const {code} = useParams()
 
     async function fetchShows() {
-        const response = await fetch (`http://openlibrary.org/search.json?title=${code}&fields=&limit=20`)
+        const response = await fetch (`https://api.nytimes.com/svc/books/v3/reviews.json?author=Stephen+King&api-key=SlheFCnWidTnyJMGcupkk6FkcZYvN62F`)
         const data = await response.json();
-        console.log("data title", data.docs[0].title)
-        console.log("data cover", data.docs[0].cover_i)
-        console.log("data subject", data.docs[0].subject)
-        console.log("data all", data.docs[0])
+        // console.log("data title", data.docs[0].title)
+        // console.log("data cover", data.docs[0].cover_i)
+        // console.log("data subject", data.docs[0].subject)
+        console.log("data all", data)
         setResult(data.docs)
     }
     useEffect(() => {
         fetchShows()
     }, [])
     
-    const shows = result.map((item, i) => {
-        return <>
-        <p>{item?.title}</p>
-        <p>{item?.subject}</p>
-        <img key={i}
-        src= {`https://covers.openlibrary.org/b/id/${item?.cover_i}-M.jpg`}
-        />
-        </>
-    })
+    // const shows = result.map((item, i) => {
+    //     return <>
+    //     <p>{item?.title}</p>
+    //     </>
+    // })
 
     return (
         <div className="flex items-center flex-col">
@@ -39,9 +35,12 @@ const Results = () => {
         <button>Return</button>
         </Link>
         <h1>Results</h1>
-        {shows}
+
         </div>
     );
 }
  
 export default Results;
+
+
+// SlheFCnWidTnyJMGcupkk6FkcZYvN62F
