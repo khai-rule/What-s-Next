@@ -1,23 +1,22 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
-const bestseller = () => {
+const bestseller = (url) => {
     
-    const [cards, setCards] = useState([]);
+    const [data, setData] = useState([]);
     const [status, setStatus] = useState("idle");
   
     useEffect(() => {
       const fetchBestsellers = async () => {
         try {
           const request = await fetch(
-            `https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=SlheFCnWidTnyJMGcupkk6FkcZYvN62F`
+            url
           );
           if (!request.ok) {
             throw new Error("Network error");
           }
           const data = await request.json();
-          console.log(data)
-          setCards(data);
+          setData(data);
           setStatus("done");
         } catch (error) {
           console.error(error);
@@ -26,10 +25,9 @@ const bestseller = () => {
       };
       setStatus("loading");
       fetchBestsellers();
-    }, []);
-  
-    //* return anything -> not JSX
-    return { cards, status };
+    }, [url]);
+
+    return { data, status };
   }
 
   export default bestseller;
