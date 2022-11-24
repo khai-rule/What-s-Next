@@ -4,7 +4,9 @@ import useFetch from "../hooks/useFetch";
 
 const HomeBestseller = () => {
 
-    const API_KEY = import.meta.env.VITE_API_KEY;
+    // const API_KEY = import.meta.env.VITE_API_KEY;
+    const API_KEY = "SlheFCnWidTnyJMGcupkk6FkcZYvN62F";
+    
 
     const { data, status } = useFetch(`https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${API_KEY}`)
 
@@ -13,14 +15,15 @@ const HomeBestseller = () => {
 
 
 
-    const handleClick = () => {
-        console.log("hello")
+    const handleClick = (title) => {
+        console.log(title)
     }
 
+    //! Right Column
     const bestsellerRight = data?.results?.books?.slice(1, 5).map((item, i) => {
     return (
         <div
-        onClick={handleClick}
+        onClick={e => handleClick(item?.title)}
         className="w-1/6 flex-wrap shrink-0 p-4">
             <img
             key={item?.title}
@@ -33,10 +36,12 @@ const HomeBestseller = () => {
     )
     })
 
+    //! Left Column
     const bestsellerLeft = data?.results?.books?.slice(0, 1).map((item, i) => {
         return (
                 <div className='w-1/2 shrink-0 p-24'>
                 <img
+                onClick={e => handleClick(item?.title)}
                 key={item?.title}
                 src={item?.book_image}
                 className="shrink-0"
@@ -51,7 +56,6 @@ const HomeBestseller = () => {
 
     return ( 
         <div className="flex flex-wrap pt-16">
-            <button onClick={handleClick}>Hello</button>
             {bestsellerLeft}
             {bestsellerRight}
         </div>
