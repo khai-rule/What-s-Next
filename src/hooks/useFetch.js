@@ -25,7 +25,7 @@ const bestseller = (url) => {
       };
       setStatus("loading");
       fetchBestsellers();
-    }, [url]);
+    }, []);
 
     return { data, status };
   }
