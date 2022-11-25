@@ -22,9 +22,9 @@ const HomeBestseller = ( {datas} ) => {
     console.log(data?.results?.lists)
 
     let book = []
-    const handleClick = (title, img, description) => {
-        navigate(`/bookinfo/title/${title}`)
-        book = ([title, img, description])
+    const handleClick = (title, img, description, amazon, author) => {
+        navigate(`/bookinfo/title/${title.toLowerCase()}`)
+        book = ([title, img, description, amazon, author])
         console.log("book", book)
         datas(book)
     }
@@ -38,7 +38,7 @@ const HomeBestseller = ( {datas} ) => {
         <div
         className="w-1/6 flex-wrap shrink-0 p-4">
         <img
-            onClick={e => handleClick(item?.title, item?.book_image, item?.description)}
+            onClick={e => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
             key={item?.title}
             src={item?.book_image}
             className="shrink-0 cursor-pointer"
@@ -55,7 +55,7 @@ const HomeBestseller = ( {datas} ) => {
         return (
                 <div className='w-1/2 shrink-0 p-24'>
                 <img
-                onClick={e => handleClick(item?.title, item?.book_image, item?.description)}
+                onClick={e => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
                 key={item?.title}
                 src={item?.book_image}
                 className="shrink-0 cursor-pointer"

@@ -19,7 +19,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<Home bookInfo={getData}/>} />
-        <Route path="/bookinfo/title/:code" element={<BookInfo bookInfo1={displayBookInfo}/>} />
+        <Route path="/bookinfo/title/:code" element={<BookInfo bookInfo={displayBookInfo}/>} />
       </Route>
       </Routes>
     </BrowserRouter>
