@@ -1,6 +1,5 @@
 import Header from '../components/Header';
 import HomeBestsellers from '../components/HomeBestsellers';
-import useFetch from "../hooks/useFetch";
 
 const Search = ( {bookInfo} ) => {
 

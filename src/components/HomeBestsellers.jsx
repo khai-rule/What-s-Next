@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +13,7 @@ const HomeBestseller = ( {datas} ) => {
     const { data, status } = useFetch(`https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${API_KEY}`)
     
     if (status === "loading") return <h1>loading...</h1>;
-    if (status === "error") console.log("error");
+    if (status === "error") return <button onClick={() => location.reload()}>reload</button>;
     
     
     //Combined Print & ebook fiction
