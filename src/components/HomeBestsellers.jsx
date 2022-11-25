@@ -11,7 +11,7 @@ const HomeBestseller = ( {datas} ) => {
     // const API_KEY = import.meta.env.VITE_API_KEY;
     const API_KEY = "SlheFCnWidTnyJMGcupkk6FkcZYvN62F";
 
-    //! Top 5 in different categories
+    //! Fetch Data: Top 5 bestsellers in different categories
     const { data, status } = useFetch(`https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${API_KEY}`)
     
     if (status === "loading") return <h1>loading...</h1>;
@@ -64,7 +64,10 @@ const HomeBestseller = ( {datas} ) => {
                 <p className="py-2 pb-2">{item?.author}</p>
                 <p className="py-2 pb-2">{item?.description}</p>
                 <button
-                className="border-solid border-2 border-black p-2">All Bestsellers</button>
+                onClick={e => navigate("/bestsellers")}
+                className="border-solid border-2 border-black p-2"
+                >
+                All Bestsellers</button>
             </div>
         )
         })
