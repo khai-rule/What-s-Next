@@ -13,13 +13,12 @@ const Search = ( {bookInfo} ) => {
 
     return ( 
         <div className='bg-pale-yellow'>
-        <Header
-        header={"Nextread is a book searching platform created to help readers find their next read. Browse through the bestsellers to discover new books."}
-        subheader={"Designed by readers, for readers."}
-        />
-        <div>
-            <HomeBestsellers datas={getData}/>
-        </div>
+            <Header
+            header={"Nextread is a book searching platform created to help readers find their next read. Browse through the bestsellers to discover new books."}
+            subheader={"Designed by readers, for readers."}/>
+            <div>
+                <HomeBestsellers datas={getData}/>
+            </div>
         </div>
     );
 }
