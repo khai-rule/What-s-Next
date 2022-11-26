@@ -26,7 +26,7 @@ const bestseller = (url) => {
       setStatus("loading");
       fetchBestsellers();
     }, []);
-
+    
     return { data, status };
   }
 

@@ -11,6 +11,11 @@ import Bookshelf from './pages/Bookshelf';
 function App() {
   const [displayBookInfo, setDisplayBookInfo] = useState("wha");
   const [shelf, setShelf] = useState([])
+  
+  //   useEffect(() => {
+  //     localStorage.setItem("books", JSON.stringify(shelf))
+  // }, [shelf])
+
 
   const getData = (book) => (
     setDisplayBookInfo(book)
