@@ -5,7 +5,9 @@ module.exports = {
   ],
   theme: { 
     colors: {
-      "pale-yellow" : "#BEB8A0"
+      "pale-yellow" : "#BEB8A0",
+      "black" : "#000000",
+      "white" : "#ffffff"
     },
     extend: {},
   },
