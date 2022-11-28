@@ -12,3 +12,5 @@ const Header = ( {image, header, subheader} ) => {
 }
  
 export default Header;
+
+

@@ -30,15 +30,17 @@ const HomeBestseller = ( {datas} ) => {
     //! Right Column
     const bestsellerRight = data?.results?.lists[0]?.books?.slice(1, 5).map((item, i) => {
     return (
-        <div className="w-1/6 flex-wrap shrink-0 p-4">
-            <img
-            onClick={e => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
-            key={item?.title}
-            src={item?.book_image}
-            className="shrink-0 cursor-pointer"/>
-            <h1 className="pt-2">{item?.title}</h1>
-            <p className="py-2 pb-2">{item?.author}</p>
-            <p className="py-2 pb-2">{item?.description}</p>
+        <div className="shrink-0 flex-initial flex-wrap basis-2/5">
+            <div className="w-1/2 shrink-0 p-4">
+                <img
+                onClick={e => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
+                key={item?.title}
+                src={item?.book_image}
+                className="shrink-0 cursor-pointer"/>
+                <h1 className="pt-2">{item?.title}</h1>
+                <p className="py-2 pb-2">{item?.author}</p>
+                <p className="py-2 pb-2">{item?.description}</p>
+            </div>
         </div>
     )
     })
@@ -56,7 +58,7 @@ const HomeBestseller = ( {datas} ) => {
                 <p className="py-2 pb-2">{item?.author}</p>
                 <p className="py-2 pb-2">{item?.description}</p>
                 <button onClick={e => navigate("/bestsellers")}
-                className="border-solid border-2 border-black p-2">
+                className="border-solid border-2 border-black p-2 px-4">
                 All Bestsellers
                 </button>
             </div>
@@ -64,7 +66,7 @@ const HomeBestseller = ( {datas} ) => {
         })
 
     return ( 
-        <div className="flex flex-wrap pt-16">
+        <div className="flex">
             {bestsellerLeft}
             {bestsellerRight}
         </div>
