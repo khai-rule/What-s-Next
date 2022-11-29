@@ -31,9 +31,10 @@ const HomeBestseller = ( {datas} ) => {
     const bestsellerRight = data?.results?.lists[0]?.books?.slice(1, 5).map((item, i) => {
     return (
         <div className="shrink-0 flex-initial flex-wrap basis-2/5">
+
             <div className="w-1/2 shrink-0 p-4">
                 <img
-                onClick={e => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
+                onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
                 key={item?.title}
                 src={item?.book_image}
                 className="shrink-0 cursor-pointer"/>
@@ -41,6 +42,7 @@ const HomeBestseller = ( {datas} ) => {
                 <p className="py-2 pb-2">{item?.author}</p>
                 <p className="py-2 pb-2">{item?.description}</p>
             </div>
+            
         </div>
     )
     })

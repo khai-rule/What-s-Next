@@ -4,7 +4,7 @@ import BookInfoModal from "../components/BookInfoModal";
 import { useState } from "react";
 import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter";
 
-const Bestsellers = ( {bookInfo, addShelf, shelf} ) => {
+const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
 
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false)
@@ -27,22 +27,28 @@ const Bestsellers = ( {bookInfo, addShelf, shelf} ) => {
     let book = [1, 2, 3, 4, 5]
     //! Open Pop up
     const handleClick = (title, img, description, amazon, author) => {
-        // navigate(`/bookinfo/title/${title.toLowerCase()}`)
-        // console.log("book", book)
         bookInfo([title, img, description, amazon, author]);
         setBookModal([title, img, description, amazon, author])
-        console.log(book)
         setIsOpen(true)
-        //TODO To fix > need to render book before open pop up
-        // icon = bookmarkIconSolid
-        //TODO to fix clicking twice to change icon
     };
 
-    //! Add items to bookshelf
+    //! Add/remove items to/fro bookshelf
     const handleShelf = (title, img, description, amazon, author) => {
-        console.log("shelf", shelf)
-        console.log("title", title)
-        addShelf([title, img, description, amazon, author])
+        // Find the index of item in shelf (if any)
+        const getIndex = () => {
+            for (let item of shelf) {
+                if (item[0] === title) {
+                    let i = shelf.indexOf(item)
+                    console.log("index", i)
+                    return i
+                } else {
+                    continue
+                }
+            }
+        }
+        // If item is in shelf, remove it, otherwise add it to shelf
+        shelf.some(ele => ele[0] === title) ? removeFromShelf(getIndex())
+        : addShelf([title, img, description, amazon, author])
     };
 
     //TODO to check if the shelf includes title in every array
@@ -52,15 +58,17 @@ const Bestsellers = ( {bookInfo, addShelf, shelf} ) => {
         const booksByCategories = data?.results?.lists[num]?.books?.map((item, i) => {
             return (
                 <div className="flex-shrink-0 w-1/5 ml-16">
-                    <img onClick={e => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
+                    <img onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
                     key={item?.title}
                     src={item?.book_image}
-                    className="cursor-pointer -z-10 hover:drop-shadow-md"/>
-                    <h3 className="pt-2">{capitaliseFirstLetter(item?.title)}</h3>
+                    className="cursor-pointer -z-10 hover:opacity-50"/>
+                    <h3 onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
+                    className="pt-2 cursor-pointer">{capitaliseFirstLetter(item?.title)}</h3>
                     <h4 className="py-2 pb-2">{item?.author}</h4>
                     <p className="py-2 pb-2">{item?.description}</p>
                     <button 
-                    onClick={e => handleShelf(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
+                    className="hover:opacity-50"
+                    onClick={() => handleShelf(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
                     >{shelf.some(title => title[0] === item?.title) ? bookmarkIconSolid : bookmarkIconOutline}
                     </button>
                 </div>
@@ -75,7 +83,7 @@ const Bestsellers = ( {bookInfo, addShelf, shelf} ) => {
         return (
             <>
                 <div className="text-left py-8 ml-16 flex">
-                    <h1 className="text-3xl">{name}</h1>
+                    <h2 className="text-3xl">{name}</h2>
                     <p className="text-1xl">{getBooksByCategories(num)?.length}</p>
                 </div>
                 <hr className="mx-16 mb-8"></hr>

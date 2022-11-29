@@ -41,7 +41,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<Home bookInfo={getData}/>} />
         <Route path="/bookinfo/title/:code" element={<BookInfo bookInfo={displayBookInfo}/>} />
-        <Route path="/bestsellers" element={<Bestsellers bookInfo={getData} addShelf={addShelf} shelf={shelf}/>} />
+        <Route path="/bestsellers" element={<Bestsellers bookInfo={getData} addShelf={addShelf} shelf={shelf} removeFromShelf={removeFromShelf}/>} />
         <Route path="/bookshelf" element={<Bookshelf removeFromShelf={removeFromShelf} shelf={shelf}/>} />
       </Route>
       </Routes>
