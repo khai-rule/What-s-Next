@@ -5,7 +5,7 @@ import Layout from './layouts/Layout';
 import { useState } from "react";
 import { useEffect } from 'react';
 import BookInfo from './pages/BookInfo';
-import Bestsellers from './pages/Bestsellers';
+import Genres from './pages/Genres';
 import Bookshelf from './pages/Bookshelf';
 
 function App() {
@@ -38,10 +38,10 @@ function App() {
     return (
       <BrowserRouter>
       <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Layout shelf={shelf}/>}>
         <Route path="/" element={<Home bookInfo={getData}/>} />
         <Route path="/bookinfo/title/:code" element={<BookInfo bookInfo={displayBookInfo}/>} />
-        <Route path="/bestsellers" element={<Bestsellers bookInfo={getData} addShelf={addShelf} shelf={shelf} removeFromShelf={removeFromShelf}/>} />
+        <Route path="/genres" element={<Genres bookInfo={getData} addShelf={addShelf} shelf={shelf} removeFromShelf={removeFromShelf}/>} />
         <Route path="/bookshelf" element={<Bookshelf removeFromShelf={removeFromShelf} shelf={shelf}/>} />
       </Route>
       </Routes>

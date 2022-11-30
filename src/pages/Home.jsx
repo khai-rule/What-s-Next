@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import HomeBestsellers from '../components/HomeBestsellers';
+import HomeSectionOne from '../components/HomeSectionOne';
 
 const Search = ( {bookInfo} ) => {
 
@@ -14,10 +14,10 @@ const Search = ( {bookInfo} ) => {
     return ( 
         <div className='bg-pale-yellow'>
             <Header
-            header={"Nextread is a book searching platform created to help readers find their next read. Browse through the bestsellers to discover new books."}
+            header={"nextBook is an international collaborative library platform to help readers find their next read. We work with a community of readers for a human-centric approach in suggesting new books to explore."}
             subheader={"Designed by readers, for readers."}/>
             <div>
-                <HomeBestsellers datas={getData}/>
+                <HomeSectionOne datas={getData}/>
             </div>
         </div>
     );

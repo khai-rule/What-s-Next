@@ -1,6 +1,5 @@
 import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter"
 import { useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
 
 const Bookshelf = ( {removeFromShelf, shelf} ) => {
 
@@ -19,10 +18,10 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
         if (shelf.length <= 0) {
             return (
                 <div className="text-center pt-16">
-                    <h1>You have not added anything in your bookshelf</h1>
+                    <h2>You have not added anything in your bookshelf</h2>
                     <button onClick={() => navigate("/bestsellers")}
-                    className="border-solid border-2 border-black p-2 px-4 mt-6">
-                    Browse Bestsellers
+                    className="border-solid border-2 border-fgreen py-3 px-4 mt-6 hover:text-white hover:bg-fgreen">
+                    Browse by Genres
                     </button>
                 </div>
             )
@@ -32,13 +31,15 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
                 {shelf.map((item, i) => (
                     <div className="flex-shrink-0 w-1/5 ml-8 pt-8">
                         <img className="" key={item[0]} src={item[1]} />
-                        <h1 className="py-2 pb-2">{capitaliseFirstLetter(item[0])}</h1>
-                        <p>{item[4]}</p>
-                        <p className="py-2 pb-2">{item[2]}</p>
-                        <p>Buy it on:</p>
-                        <p><a href={item[3]} target="_blank">Amazon</a></p>
+                        <h1 className="py-2 pt-3 text-2xl">{capitaliseFirstLetter(item[0])}</h1>
+                        <h4 className="hover:opacity-50 cursor-pointer"
+                        >{item[4]}</h4>
+                        <p className="py-2">{item[2]}</p>
+                        <h3 className="text-xl">Buy it on:</h3>
+                        <p className="hover:opacity-50"
+                        ><a href={item[3]} target="_blank">Amazon</a></p>
                         <button onClick={() => handleShelf(i)}
-                        className="hover:opacity-50"
+                        className="hover:opacity-50 pt-3"
                         >{bookmarkIconSolid}</button>
                     </div>
                 ))}
@@ -49,7 +50,10 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
 
     return (
         <>
-            <h1 className="text-center text-5xl pt-16">My Bookshelf</h1>
+            <div className="pt-16 flex justify-center">
+                <h1>My Bookshelf</h1>
+                <p className="font-sans-serif pl-2 pt-2">{shelf.length}</p>
+            </div>
             {books()}
         </>
         );

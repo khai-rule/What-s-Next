@@ -14,12 +14,12 @@ const BookInfoModal = ( {open, children, onClose, bookModal} ) => {
 
     return (
         <>
-        <div className='fixed inset-0 z-1 bg-black bg-opacity-50'>
+        <div className='fixed inset-0 z-1 bg-pale-yellow bg-opacity-75'>
 
-            <div className="z-1000 m-auto mt-36 max-w-screen-lg bg-pale-yellow">
+            <div className="z-1000 m-auto mt-36 max-w-screen-lg bg-fgreen">
 
                 <button onClick={onClose}
-                className="text-1xl text-left py-8 pl-16 hover:opacity-50">Back
+                className="text-left py-8 pl-16 hover:opacity-50 text-pale-yellow">Back
                 </button>
 
                 <div className="flex m-auto justify-center">
@@ -27,13 +27,13 @@ const BookInfoModal = ( {open, children, onClose, bookModal} ) => {
                         <img src={bookImg} alt={`${bookTitle}-cover`} />
                     </div>
                     <div className="w-1/3 py-16 pl-16">
-                        <h3 className="text-3xl py-4">{capitaliseFirstLetter(bookTitle)}</h3>
-                        <h4 className="text-2xl pb-4">{bookAuthor}</h4>
-                        <p className="pb-4"
+                        <h1 className="text-4xl text-pale-yellow">{capitaliseFirstLetter(bookTitle)}</h1>
+                        <h4 className="py-4 hover:opacity-50 cursor-pointer text-pale-yellow">{bookAuthor}</h4>
+                        <p className="pb-4 text-pale-yellow"
                         >{bookDescription}</p>
-                        <h4 className="pb-2"
-                        >Buy it on:</h4>
-                        <a className="hover:opacity-50"
+                        <h3 className="pb-2 text-pale-yellow"
+                        >Buy it on:</h3>
+                        <a className="hover:opacity-50 text-pale-yellow"
                         href={amazon} target="_blank">Amazon</a>
                     </div>
                 </div>

@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
-import HomeBestseller from "../components/HomeBestsellers";
 import { useNavigate } from "react-router-dom";
 import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter";
 import useFetch from "../hooks/useFetch";
+import Loading from "../components/Loading";
+import LoadingFailed from "../components/LoadingFailed";
 
 const BookInfo = ( {bookInfo} ) => {
 
@@ -17,8 +18,8 @@ const BookInfo = ( {bookInfo} ) => {
     const API_KEY = "SlheFCnWidTnyJMGcupkk6FkcZYvN62F";
     const { data, status } = useFetch(`https://api.nytimes.com/svc/books/v3/reviews.json?title=${code}&api-key=${API_KEY}`)
     
-    if (status === "loading") return <h1>loading...</h1>;
-    if (status === "error") return <button onClick={() => location.reload()}>reload</button>;
+    if (status === "loading") return <Loading />;
+    if (status === "error") return <LoadingFailed />;
     
     console.log("data ", data)
 
@@ -36,19 +37,21 @@ const BookInfo = ( {bookInfo} ) => {
             className="text-1xl text-left py-8 pl-16 hover:opacity-50">Back
             </button>
             <div className="flex m-auto">
-                <div className="flex items-center flex-col pl-24 pb-24 m-auto w-1/2">
+                <div className="flex items-right flex-col pl-24 pb-24 ml-auto mr-8 w-1/3">
                     <img className="py-4"
                     src={bookImg} alt={`${bookTitle}-cover`}/>
                 </div>
                 <div className="w-1/2 pr-32 py-16">
-                    <h3 className="text-3xl py-4">{capitaliseFirstLetter(bookTitle)}</h3>
-                    <h4 className="text-2xl pb-4">{bookAuthor}</h4>
-                    <p className="pb-4"
+                    <h2 className="py-2">{capitaliseFirstLetter(bookTitle)}</h2>
+                    <h4 className="pb-4">{bookAuthor}</h4>
+                    <p className="pb-4 w-1/2"
                     >{bookDescription}</p>
-                    <h4 className="pb-2"
-                    >Buy it on:</h4>
-                    <a className="hover:opacity-50"
+                    <h3 className="pb-2"
+                    >Buy it on:</h3>
+                    <p>
+                    <a className="hover:opacity-50 font-sans-serif"
                     href={amazon} target="_blank">Amazon</a>
+                    </p>
                 </div>
             </div>
         </>

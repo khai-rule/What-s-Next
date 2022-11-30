@@ -3,6 +3,8 @@ import useFetch from "../hooks/useFetch";
 import BookInfoModal from "../components/BookInfoModal";
 import { useState } from "react";
 import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter";
+import Loading from "../components/Loading";
+
 
 const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
 
@@ -15,7 +17,7 @@ const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
     //! Fetch Data: Bestsellers in different categories (about 10-15 books)
     const { data, status } = useFetch(`https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=${API_KEY}`)
     
-    if (status === "loading") return <h1>loading...</h1>;
+    if (status === "loading") return <Loading />;
     if (status === "error") console.log("error");
 
     // console.log(data.results)
@@ -27,7 +29,7 @@ const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
     let book = [1, 2, 3, 4, 5]
     //! Open Pop up
     const handleClick = (title, img, description, amazon, author) => {
-        bookInfo([title, img, description, amazon, author]);
+        // bookInfo([title, img, description, amazon, author]);
         setBookModal([title, img, description, amazon, author])
         setIsOpen(true)
     };
@@ -51,21 +53,19 @@ const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
         : addShelf([title, img, description, amazon, author])
     };
 
-    //TODO to check if the shelf includes title in every array
-
     //! Get The Books by Categories
     const getBooksByCategories = (num) => {
         const booksByCategories = data?.results?.lists[num]?.books?.map((item, i) => {
             return (
-                <div className="flex-shrink-0 w-1/5 ml-16">
+                <div className="flex-shrink-0 w-1/6 ml-16">
                     <img onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
                     key={item?.title}
                     src={item?.book_image}
-                    className="cursor-pointer -z-10 hover:opacity-50"/>
+                    className="cursor-pointer -z-10 hover:opacity-50 hover:z-0"/>
                     <h3 onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
-                    className="pt-2 cursor-pointer">{capitaliseFirstLetter(item?.title)}</h3>
-                    <h4 className="py-2 pb-2">{item?.author}</h4>
-                    <p className="py-2 pb-2">{item?.description}</p>
+                    className="py-2 cursor-pointer">{capitaliseFirstLetter(item?.title)}</h3>
+                    <h4 className="hover:opacity-50 cursor-pointer">{item?.author}</h4>
+                    <p className="py-2 pb-4">{item?.description}</p>
                     <button 
                     className="hover:opacity-50"
                     onClick={() => handleShelf(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
@@ -83,10 +83,10 @@ const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
         return (
             <>
                 <div className="text-left py-8 ml-16 flex">
-                    <h2 className="text-3xl">{name}</h2>
-                    <p className="text-1xl">{getBooksByCategories(num)?.length}</p>
+                    <h2>{name}</h2>
+                    <p className="font-sans-serif">{getBooksByCategories(num)?.length}</p>
                 </div>
-                <hr className="mx-16 mb-8"></hr>
+                <hr className="mx-16 mb-8 border-fgreen"></hr>
                 <div className="flex overflow-x-scroll space-x-8">
                     {getBooksByCategories(num)}   
                 </div>
@@ -108,9 +108,8 @@ const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
         <>
         <BookInfoModal open={isOpen} bookModal={bookModal} onClose={() => setIsOpen(false)}>
         </BookInfoModal>
-
         <div className="bg-pale-yellow">
-            <h1 className="text-center text-5xl pt-16">Bestsellers of the Week</h1>
+            <h1 className="text-center pt-16">Genres</h1>
             {booksToDisplay.map((item) => {
                 return displayBooks(item[0], item[1])
             })}
