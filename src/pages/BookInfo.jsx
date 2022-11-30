@@ -34,7 +34,7 @@ const BookInfo = ( {bookInfo} ) => {
     return (
         <>
             <button onClick={() => navigate(-1)}
-            className="text-1xl text-left py-8 pl-16 hover:opacity-50">Back
+            className="text-1xl text-left py-8 pl-16 hover:opacity-50 transition duration-300 ease-in-out">Back
             </button>
             <div className="flex m-auto">
                 <div className="flex items-right flex-col pl-24 pb-24 ml-auto mr-8 w-1/3">
@@ -49,7 +49,7 @@ const BookInfo = ( {bookInfo} ) => {
                     <h3 className="pb-2"
                     >Buy it on:</h3>
                     <p>
-                    <a className="hover:opacity-50 font-sans-serif"
+                    <a className="hover:opacity-50 font-sans-serif transition duration-300 ease-in-out"
                     href={amazon} target="_blank">Amazon</a>
                     </p>
                 </div>

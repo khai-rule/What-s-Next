@@ -8,7 +8,7 @@ const Footer = () => {
                     <h4 className="absolute pt-6 pl-16 text-sm opacity-75">BrandName copyright 2022</h4>
                 </div>
                 <div className="flex ml-auto">
-                    <Link to="/bookshelf" className="flex pt-5 pl-8 pr-16 hover:opacity-50 text-md">About</Link>
+                    <Link to="/bookshelf" className="flex pt-5 pl-8 pr-16 hover:opacity-50 text-md transition duration-300 ease-in-out">About</Link>
                 </div>
             </footer>
         </>

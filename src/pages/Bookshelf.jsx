@@ -19,8 +19,8 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
             return (
                 <div className="text-center pt-16">
                     <h2>You have not added anything in your bookshelf</h2>
-                    <button onClick={() => navigate("/bestsellers")}
-                    className="border-solid border-2 border-fgreen py-3 px-4 mt-6 hover:text-white hover:bg-fgreen">
+                    <button onClick={() => navigate("/genres/all")}
+                    className="border-solid border-2 border-fgreen py-3 px-4 mt-6 hover:text-white hover:bg-fgreen transition duration-300 ease-in-out">
                     Browse by Genres
                     </button>
                 </div>

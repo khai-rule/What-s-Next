@@ -39,7 +39,7 @@ const HomeBestseller = ( {datas} ) => {
                 onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
                 key={item?.title}
                 src={item?.book_image}
-                className="shrink-0 cursor-pointer hover:opacity-50"/>
+                className="shrink-0 cursor-pointer hover:opacity-50 transition duration-300 ease-in-out"/>
                 <h3 className="pt-4 cursor-pointer">{capitaliseFirstLetter(item?.title)}</h3>
                 <p className="pb-8 pt-3">{item?.description}</p>
                 </div>
@@ -57,13 +57,13 @@ const HomeBestseller = ( {datas} ) => {
                 onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
                 key={item?.title}
                 src={item?.book_image}
-                className="shrink-0 cursor-pointer w-96 hover:opacity-50"/>
+                className="shrink-0 cursor-pointer w-96 hover:opacity-50 transition duration-300 ease-in-out"/>
                 <h1 onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
                 className="pt-6">#1 Recommended</h1>
                 <h3 className="pt-1 cursor-pointer">{capitaliseFirstLetter(item?.title)}</h3>
                 <p className="pb-8 pt-3 w-80">{item?.description}</p>
                 <button onClick={() => navigate("/bestsellers")}
-                className="border-solid border-2 border-fgreen py-3 px-4 hover:text-white hover:bg-fgreen">
+                className="border-solid border-2 border-fgreen py-3 px-4 hover:text-white hover:bg-fgreen transition duration-300 ease-in-out">
                 All Bestsellers
                 </button>
                 </div>
