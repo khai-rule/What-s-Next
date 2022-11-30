@@ -108,7 +108,7 @@ const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
         <BookInfoModal open={isOpen} bookModal={bookModal} onClose={() => setIsOpen(false)}>
         </BookInfoModal>
         <div className="bg-pale-yellow">
-            <h1 className="text-center pt-16">Genres</h1>
+            <h1 className="text-center pt-16">Genres Overview</h1>
             {booksToDisplay.map((item) => {
                 return displayBooks(item[0], item[1])
             })}

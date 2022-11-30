@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
-const bestseller = (url) => {
+const api = (url) => {
     
     const [data, setData] = useState([]);
     const [status, setStatus] = useState("idle");
   
     useEffect(() => {
-      const fetchBestsellers = async () => {
+      const fetchApi = async () => {
         try {
           const request = await fetch(
             url
@@ -24,11 +24,11 @@ const bestseller = (url) => {
         }
       };
       setStatus("loading");
-      fetchBestsellers();
+      fetchApi();
     }, []);
     
     return { data, status };
   }
 
-  export default bestseller;
+  export default api;
   
