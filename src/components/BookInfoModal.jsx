@@ -13,13 +13,14 @@ const BookInfoModal = ( {open, onClose, bookModal} ) => {
     if (!open) return null
 
     return (
-        <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
-        <div className='fixed inset-0 z-1 bg-pale-yellow bg-opacity-75'>
+        <div className="z-100"
+        data-aos="fade-in" data-aos-duration="200" data-aos-easing="ease-in-out" data-aos-once="true">
+        <div className='fixed inset-0 z-50 bg-pale-yellow bg-opacity-75'>
 
             <div className="z-1000 m-auto mt-36 max-w-screen-lg bg-fgreen">
 
                 <button onClick={onClose}
-                className="text-left py-8 pl-16 hover:opacity-50 text-pale-yellow transition duration-300 ease-in-out">Back
+                className="text-left py-8 pl-16 hover:opacity-50 z-50 text-pale-yellow transition duration-300 ease-in-out">Back
                 </button>
 
                 <div className="flex m-auto justify-center">

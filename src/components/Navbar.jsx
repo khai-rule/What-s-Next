@@ -30,7 +30,7 @@ function TopNavbar( {shelf} ) {
         <div>
           <div className="dropdown relative">
             <a 
-              className="dropdown-toggle py-2.5 text-fgreen text-lg hover:opacity-50 transition duration-300 ease-in-out flex items-center pt-5 pl-8" 
+              className="dropdown-toggle py-2.5 text-fgreen text-lg hover:opacity-50 transition duration-300 ease-in-out flex items-center pt-5 px-4" 
               href="#"
               type="button"
               id="dropdownMenuButton2"
@@ -53,11 +53,13 @@ function TopNavbar( {shelf} ) {
                 className="dropdown-menu min-w-max absolute z-50 float-left py-2 list-none text-left mt-1 hidden m-0"
                 aria-labelledby="dropdownMenuButton2">
               <li>
-                <Link to= "/genres/overview" className="dropdown-item text-sm py-2 px-4 block w-full text-fgreen hover:opacity-50 transition duration-300 ease-in-out"
+                <Link to= "/genres/overview"
+                className={location.pathname === "/genres/overview" ? "dropdown-item text-sm py-2 px-4 block w-full text-fgreen opacity-50 transition duration-300 ease-in-out" : "dropdown-item text-sm py-2 px-4 block w-full text-fgreen hover:opacity-50 transition duration-300 ease-in-out"} 
                 >Overview</Link>
               </li>
               <li>
-                <Link to= "/genres/browse" className="dropdown-item text-sm py-2 px-4 block w-full text-fgreen hover:opacity-50 transition duration-300 ease-in-out"
+                <Link to= "/genres/browse"
+                className={location.pathname === "/genres/browse" ? "dropdown-item text-sm py-2 px-4 block w-full text-fgreen opacity-50 transition duration-300 ease-in-out" : "dropdown-item text-sm py-2 px-4 block w-full text-fgreen hover:opacity-50 transition duration-300 ease-in-out"} 
                 >Browse</Link>
               </li>
             </ul>
@@ -68,8 +70,9 @@ function TopNavbar( {shelf} ) {
   }
 
   return (
-    <div data-aos="fade-in" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
-        <nav className="h-16 sticky top-0 z-10 flex">
+    <div className="sticky top-0 z-50"
+    data-aos="fade-in" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
+        <nav className="h-16 z-10 flex">
             <div className="flex mr-auto">
                 <Link to="/" className="absolute pt-5 pl-16 transition duration-300 ease-in-out">
                 <img className="h-8 hover:opacity-0"
@@ -83,10 +86,10 @@ function TopNavbar( {shelf} ) {
                 </Link>
             </div>
             <div className="flex ml-auto">
-                <Link to="#" className="flex pt-5 pl-16 hover:opacity-50 text-lg transition duration-300 ease-in-out">Find</Link>
+                <Link to="#" className="flex pt-5 px-4 hover:opacity-50 text-lg transition duration-300 ease-in-out">Find</Link>
                 {genresDropdown()}
-                <Link to="#" className="flex pt-5 pl-8 hover:opacity-50 text-lg transition duration-300 ease-in-out">Reviews</Link>
-                <Link to="/bookshelf" className={location.pathname === "/bookshelf" ? "flex pt-5 pl-8 pr-16 opacity-50 text-lg" : "flex pt-5 pl-8 pr-16 hover:opacity-50 text-lg transition duration-300 ease-in-out"}>My Bookshelf {inShelf}</Link>
+                <Link to="#" className="flex pt-5 px-4 hover:opacity-50 text-lg transition duration-300 ease-in-out">Reviews</Link>
+                <Link to="/bookshelf" className={location.pathname === "/bookshelf" ? "flex pt-5 px-4 mr-12 opacity-50 text-lg" : "flex pt-5 px-4 mr-12 hover:opacity-50 text-lg transition duration-300 ease-in-out"}>My Bookshelf {inShelf}</Link>
             </div>
         </nav>
     </div>

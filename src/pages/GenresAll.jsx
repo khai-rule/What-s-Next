@@ -93,9 +93,10 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
     const displayGenres = () => {
         return (
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-            className="w-96">
+            className="w-96 sticky top-16 -z-1">
             <h3 className="flex pl-16 pt-8 pb-4">Select Genres</h3>
             {data?.results?.lists?.map(item => {
+                // Get Index of the arr in data
                 let index = ""
                     if (item.display_name === item.display_name) {
                         const i = data?.results?.lists?.indexOf(item)
@@ -118,7 +119,12 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
         console.log("genres data", genresData)
         console.log("to display", genresDisplay)
         //TODO add the number of books displayed on the header
-
+        //TODO change genres overview into recommendations
+        //TODO browse all is browsing all genres
+        //TODO bookshelf button > browse recommended
+        //TODO home button > browse recommended
+        //TODO nav bar change Genres > Browse
+        //TODO add fav button to pop up
 
     return (
         <>
