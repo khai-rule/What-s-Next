@@ -65,6 +65,7 @@ nextBook checks all the boxes to allow readers have a pleasant experience findin
  ## Creator's Note
 
 1. The website function as an aspiration to what it aims to achieve. Therefore, the content does not accurately portray what the header suggest, mostly due to the API limited options. 
+2. This site best viewed in google chrome desktop browser. 
 
 ---
 
