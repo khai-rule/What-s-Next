@@ -37,7 +37,7 @@ The following technologies were used for this project:
 ```
 
 ### Wireframes
-![homepage](https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/home-page.png?raw=true)
+<img src="https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/home-page.png" width="100">
 ![overview page](https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/overview-page.png?raw=true)
 ![book info page](https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/book-info-page.png?raw=true)
 
