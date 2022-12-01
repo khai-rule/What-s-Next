@@ -1,6 +1,6 @@
 # Project #2: React Application
 
-## Overview:
+## Project Brief:
 
 Your will be creating a front end application using React.
 
@@ -10,8 +10,7 @@ You will be working individually for this project, and you'll be designing the a
 
 Remember to keep things small and focus on mastering the fundamentals – scope creep/feature creep is the biggest pitfall for any project!
 
-## Technical Requirements
-
+### Technical Requirements
 - **Build a web application using create-react-app**. Must be your own work.
 - **Use React framework** to build your application with _at least_
   - 3 components
@@ -30,7 +29,7 @@ Remember to keep things small and focus on mastering the fundamentals – scope 
 A book searching platform designed to help readers find their next read. Browse by recommendations by other readers or by your favourite genre. Add the books to your bookshelf to shortlist the books you are intrigued by. Subsequently, get the books on amazon. 
 
 ### Technical Used
-For this project, I used the following technologies:
+The following technologies were used for this project:
 
 ```
 - React
@@ -38,5 +37,8 @@ For this project, I used the following technologies:
 ```
 
 ### Wireframes
+(https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/home-page.png)
+(https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/overview-page.png)
+(https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/book-info-page.png)
 
 
