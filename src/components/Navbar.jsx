@@ -67,11 +67,8 @@ function TopNavbar( {shelf} ) {
     )
   }
 
-  // <Link to="/genres" className={location.pathname == "/genres" ? "flex pt-5 pl-8 opacity-50 text-lg" : "flex pt-5 pl-8 hover:opacity-50 text-lg"}>Genres</Link>
-
-
   return (
-    <>
+    <div data-aos="fade-in" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
         <nav className="h-16 sticky top-0 z-10 flex">
             <div className="flex mr-auto">
                 <Link to="/" className="absolute pt-5 pl-16 transition duration-300 ease-in-out">
@@ -92,7 +89,7 @@ function TopNavbar( {shelf} ) {
                 <Link to="/bookshelf" className={location.pathname === "/bookshelf" ? "flex pt-5 pl-8 pr-16 opacity-50 text-lg" : "flex pt-5 pl-8 pr-16 hover:opacity-50 text-lg transition duration-300 ease-in-out"}>My Bookshelf {inShelf}</Link>
             </div>
         </nav>
-    </>
+    </div>
   );
 }
  

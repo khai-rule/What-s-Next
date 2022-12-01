@@ -34,7 +34,8 @@ const HomeBestseller = ( {datas} ) => {
     const bestsellerRight = data?.results?.lists[0]?.books?.slice(1, 5).map((item, i) => {
     return (
 
-            <div className="flex-shrink-0 w-64 max-w-screen-sm min-w-0 ml-24">
+            <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
+            className="flex-shrink-0 w-64 max-w-screen-sm min-w-0 ml-24">
                 <img
                 onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
                 key={item?.title}
@@ -52,7 +53,8 @@ const HomeBestseller = ( {datas} ) => {
     //! Left Column
     const bestsellerLeft = data?.results?.lists[0]?.books?.slice(0, 1).map((item, i) => {
         return (
-            <div className='flex-shrink-0 w-full min-w-full ml-96'>
+            <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
+            className='flex-shrink-0 w-full min-w-full ml-96'>
                 <img
                 onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
                 key={item?.title}
@@ -62,9 +64,9 @@ const HomeBestseller = ( {datas} ) => {
                 className="pt-6">#1 Recommended</h1>
                 <h3 className="pt-1 cursor-pointer">{capitaliseFirstLetter(item?.title)}</h3>
                 <p className="pb-8 pt-3 w-80">{item?.description}</p>
-                <button onClick={() => navigate("/bestsellers")}
+                <button onClick={() => navigate("/genres/browse")}
                 className="border-solid border-2 border-fgreen py-3 px-4 hover:text-white hover:bg-fgreen transition duration-300 ease-in-out">
-                All Bestsellers
+                Browse Genres
                 </button>
                 </div>
                 )

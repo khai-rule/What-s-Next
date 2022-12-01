@@ -1,6 +1,6 @@
     import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter"
 
-const BookInfoModal = ( {open, children, onClose, bookModal} ) => {
+const BookInfoModal = ( {open, onClose, bookModal} ) => {
     
     // Book Info
     const bookImg = bookModal[1]
@@ -13,7 +13,7 @@ const BookInfoModal = ( {open, children, onClose, bookModal} ) => {
     if (!open) return null
 
     return (
-        <>
+        <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
         <div className='fixed inset-0 z-1 bg-pale-yellow bg-opacity-75'>
 
             <div className="z-1000 m-auto mt-36 max-w-screen-lg bg-fgreen">
@@ -41,7 +41,7 @@ const BookInfoModal = ( {open, children, onClose, bookModal} ) => {
             </div>
 
         </div>
-        </>
+        </div>
     );
 }
  

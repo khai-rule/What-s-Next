@@ -18,8 +18,10 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
         if (shelf.length <= 0) {
             return (
                 <div className="text-center pt-16">
-                    <h2>You have not added anything in your bookshelf</h2>
-                    <button onClick={() => navigate("/genres/all")}
+                    <h2 data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
+                    You have not added anything in your bookshelf</h2>
+                    <button onClick={() => navigate("/genres/overview")}
+                    data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
                     className="border-solid border-2 border-fgreen py-3 px-4 mt-6 hover:text-white hover:bg-fgreen transition duration-300 ease-in-out">
                     Browse by Genres
                     </button>
@@ -27,7 +29,8 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
             )
         } else {
             return (
-                <div className="text-left py-16 mx-auto flex justify-center flex-wrap">
+                <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
+                className="text-left py-16 mx-auto flex justify-center flex-wrap">
                 {shelf.map((item, i) => (
                     <div className="flex-shrink-0 w-1/5 ml-8 pt-8">
                         <img className="" key={item[0]} src={item[1]} />
@@ -50,7 +53,8 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
 
     return (
         <>
-            <div className="pt-16 flex justify-center">
+            <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
+            className="pt-16 flex justify-center">
                 <h1>My Bookshelf</h1>
                 <p className="font-sans-serif pl-2 pt-2">{shelf.length}</p>
             </div>
