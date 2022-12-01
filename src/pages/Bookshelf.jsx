@@ -20,10 +20,10 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
                 <div className="text-center pt-16">
                     <h2 data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
                     You have not added anything in your bookshelf</h2>
-                    <button onClick={() => navigate("/genres/overview")}
+                    <button onClick={() => navigate("/books/recommended")}
                     data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
                     className="border-solid border-2 border-fgreen py-3 px-4 mt-6 hover:text-white hover:bg-fgreen transition duration-300 ease-in-out">
-                    Browse by Genres
+                    Browse Recommended
                     </button>
                 </div>
             )
@@ -39,8 +39,8 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
                         >{item[4]}</h4>
                         <p className="py-2">{item[2]}</p>
                         <h3 className="text-xl">Buy it on:</h3>
-                        <p className="hover:opacity-50"
-                        ><a href={item[3]} target="_blank">Amazon</a></p>
+                        <h4 className="hover:opacity-50"
+                        ><a href={item[3]} target="_blank">Amazon</a></h4>
                         <button onClick={() => handleShelf(i)}
                         className="hover:opacity-50 pt-3"
                         >{bookmarkIconSolid}</button>

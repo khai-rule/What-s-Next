@@ -4,8 +4,6 @@ import { useState } from 'react';
 
 const LoadingFailed = () => {
 
-    const navigate = useNavigate()
-
     const [state, setState] = useState(true)
 
     const handleClick = () => {

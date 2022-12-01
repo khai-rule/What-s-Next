@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import BookInfoModal from "../components/BookInfoModal";
 import { useState } from "react";
@@ -6,9 +5,9 @@ import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter";
 import Loading from "../components/Loading";
 import LoadingFailed from "../components/LoadingFailed";
 
-const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
 
-    const navigate = useNavigate()
+const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
+
     const [isOpen, setIsOpen] = useState(false)
     const [bookModal, setBookModal] = useState([])
 
@@ -26,7 +25,6 @@ const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
     
     //! Open Pop up
     const handleClick = (title, img, description, amazon, author) => {
-        // bookInfo([title, img, description, amazon, author]);
         setBookModal([title, img, description, amazon, author])
         setIsOpen(true)
     };
@@ -45,7 +43,7 @@ const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
                 }
             }
         }
-        //! If item is in shelf, remove it, otherwise add it to shelf
+        // If item is in shelf, remove it, otherwise add it to shelf
         shelf.some(ele => ele[0] === title) ? removeFromShelf(getIndex())
         : addShelf([title, img, description, amazon, author])
     };
@@ -106,11 +104,13 @@ const Bestsellers = ( {bookInfo, addShelf, shelf, removeFromShelf} ) => {
 
     return (
         <div>
-        <BookInfoModal open={isOpen} bookModal={bookModal} onClose={() => setIsOpen(false)}>
+
+        <BookInfoModal open={isOpen} bookModal={bookModal} onClose={() => setIsOpen(false)} shelf={shelf} addShelf={addShelf} removeFromShelf={removeFromShelf}>
         </BookInfoModal>
+
         <div className="bg-pale-yellow">
             <h1 data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-            className="text-center pt-16">Genres Overview</h1>
+            className="text-center pt-16">Recomended</h1>
             {booksToDisplay.map((item) => {
                 return displayBooks(item[0], item[1])
             })}

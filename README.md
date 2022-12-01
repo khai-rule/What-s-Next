@@ -68,7 +68,7 @@ nextBook checks all the boxes to allow readers have a pleasant experience findin
 
 ---
 
-## Resources Used
-API - https://developer.nytimes.com/docs/books-product/1/overview
-Icons - https://heroicons.com
-Scrolling Animation - https://github.com/michalsnik/aos
+## Resources
+- API - https://developer.nytimes.com/docs/books-product/1/overview
+- Icons - https://heroicons.com
+- Scrolling Animation - https://github.com/michalsnik/aos

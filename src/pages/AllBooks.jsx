@@ -1,7 +1,6 @@
 import Loading from "../components/Loading";
 import LoadingFailed from "../components/LoadingFailed";
 import useFetch from "../hooks/useFetch";
-import GetGenres from "../list/GetGenres";
 import { useState } from 'react';
 import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter";
 import BookInfoModal from "../components/BookInfoModal";
@@ -11,7 +10,6 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
     const [genresDisplay, setGenresDisplay] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [bookModal, setBookModal] = useState([]);
-    const [genresData, setGenresData] = useState([])
 
     const API_KEY = "SlheFCnWidTnyJMGcupkk6FkcZYvN62F";
 
@@ -39,7 +37,7 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
                 }
             }
         }
-        // If item is in shelf, remove it, otherwise add it to shelf
+        //! If item is in shelf, remove it, otherwise add it to shelf
         shelf.some(ele => ele[0] === title) ? removeFromShelf(getIndex())
         : addShelf([title, img, description, amazon, author])
     };
@@ -67,20 +65,21 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
             const title = item?.title
             const author = item?.author
             const description = item?.description
+            const amazon = item?.amazon_product_url
             return (
                 <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
                 className="flex-shrink-0 w-1/6 h-fit ml-8">
-                    <img onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
+                    <img onClick={() => handleClick(title, img, description, amazon, author)}
                     key={title}
                     src={img}
                     className="cursor-pointer -z-10 hover:opacity-50 hover:z-0 transition duration-300 ease-in-out"/>
-                    <h3 onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
+                    <h3 onClick={() => handleClick(title, img, description, amazon, author)}
                     className="py-2 cursor-pointer">{capitaliseFirstLetter(title)}</h3>
                     <h4 className="hover:opacity-50 cursor-pointer transition duration-300 ease-in-out">{author}</h4>
                     <p className="py-2 pb-4">{description}</p>
                     <button 
                     className="hover:opacity-50 transition duration-300 ease-in-out pb-16"
-                    onClick={() => handleShelf(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
+                    onClick={() => handleShelf(title, img, description, amazon, author)}
                     >{shelf.some(title => title[0] === item?.title) ? bookmarkIconSolid : bookmarkIconOutline}
                     </button>
                 </div>
@@ -115,25 +114,25 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
             </div>
             )
         }
+
+        //! Get numbers of total books
+        let i = null
+        const numOfBooks = () => {
+            genresDisplay.map(item => {
+                i += displayBooks(item).length
+            })
+            return i
+        }
         
-        console.log("genres data", genresData)
-        console.log("to display", genresDisplay)
-        //TODO add the number of books displayed on the header
-        //TODO change genres overview into recommendations
-        //TODO browse all is browsing all genres
-        //TODO bookshelf button > browse recommended
-        //TODO home button > browse recommended
-        //TODO nav bar change Genres > Browse
-        //TODO add fav button to pop up
 
     return (
         <>
-            <BookInfoModal open={isOpen} bookModal={bookModal} onClose={() => setIsOpen(false)}>
+            <BookInfoModal open={isOpen} bookModal={bookModal} onClose={() => setIsOpen(false)} shelf={shelf} addShelf={addShelf} removeFromShelf={removeFromShelf}>
             </BookInfoModal>
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
             className="pt-16 flex justify-center">
-                <h1>Browse Genres</h1>
-                <p className="font-sans-serif pt-4">{genresDisplay.length}</p>
+                <h1>Browse Books</h1>
+                <p className="font-sans-serif pt-4">{numOfBooks()}</p>
             </div>
 
             <div className="m-auto flex">

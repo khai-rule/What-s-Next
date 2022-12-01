@@ -1,9 +1,6 @@
 import { NavLink, Link, useLocation } from "react-router-dom";
 import LogoActive from "../img/logo-active-01.svg"
 import LogoMain from "../img/logo-main-01.svg"
-import useFetch from "../hooks/useFetch";
-import Loading from "./Loading";
-import LoadingFailed from "./LoadingFailed";
 
 function TopNavbar( {shelf} ) {
 
@@ -36,7 +33,7 @@ function TopNavbar( {shelf} ) {
               id="dropdownMenuButton2"
               data-bs-toggle="dropdown"
               aria-expanded="false">
-              Genres
+              Books
               <svg
               aria-hidden="true"
               focusable="false"
@@ -53,14 +50,14 @@ function TopNavbar( {shelf} ) {
                 className="dropdown-menu min-w-max absolute z-50 float-left py-2 list-none text-left mt-1 hidden m-0"
                 aria-labelledby="dropdownMenuButton2">
               <li>
-                <Link to= "/genres/overview"
-                className={location.pathname === "/genres/overview" ? "dropdown-item text-sm py-2 px-4 block w-full text-fgreen opacity-50 transition duration-300 ease-in-out" : "dropdown-item text-sm py-2 px-4 block w-full text-fgreen hover:opacity-50 transition duration-300 ease-in-out"} 
-                >Overview</Link>
+                <Link to= "/books/recommended"
+                className={location.pathname === "/books/recommended" ? "dropdown-item text-sm py-2 px-4 block w-full text-fgreen opacity-50 transition duration-300 ease-in-out" : "dropdown-item text-sm py-2 px-4 block w-full text-fgreen hover:opacity-50 transition duration-300 ease-in-out"} 
+                >Recommended</Link>
               </li>
               <li>
-                <Link to= "/genres/browse"
-                className={location.pathname === "/genres/browse" ? "dropdown-item text-sm py-2 px-4 block w-full text-fgreen opacity-50 transition duration-300 ease-in-out" : "dropdown-item text-sm py-2 px-4 block w-full text-fgreen hover:opacity-50 transition duration-300 ease-in-out"} 
-                >Browse</Link>
+                <Link to= "/books/allbooks"
+                className={location.pathname === "/books/allbooks" ? "dropdown-item text-sm py-2 px-4 block w-full text-fgreen opacity-50 transition duration-300 ease-in-out" : "dropdown-item text-sm py-2 px-4 block w-full text-fgreen hover:opacity-50 transition duration-300 ease-in-out"} 
+                >All Books</Link>
               </li>
             </ul>
           </div>
