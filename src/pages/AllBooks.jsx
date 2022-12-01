@@ -129,8 +129,9 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
         <>
             <BookInfoModal open={isOpen} bookModal={bookModal} onClose={() => setIsOpen(false)} shelf={shelf} addShelf={addShelf} removeFromShelf={removeFromShelf}>
             </BookInfoModal>
+            
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-            className="pt-16 flex justify-center">
+            className="my-24 flex justify-center">
                 <h1>Browse Books</h1>
                 <p className="font-sans-serif pt-4">{numOfBooks()}</p>
             </div>

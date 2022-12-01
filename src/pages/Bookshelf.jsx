@@ -17,7 +17,7 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
     const books = () => {
         if (shelf.length <= 0) {
             return (
-                <div className="text-center pt-16">
+                <div className="text-center">
                     <h2 data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
                     You have not added anything in your bookshelf</h2>
                     <button onClick={() => navigate("/books/recommended")}
@@ -38,9 +38,13 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
                         <h4 className="hover:opacity-50 cursor-pointer"
                         >{item[4]}</h4>
                         <p className="py-2">{item[2]}</p>
-                        <h3 className="text-xl">Buy it on:</h3>
+                        <h3 className="text-xl pb-2">Check it out on:</h3>
                         <h4 className="hover:opacity-50"
                         ><a href={item[3]} target="_blank">Amazon</a></h4>
+                        <h4 className="pt-1">
+                        <a className="hover:opacity-50 transition duration-300 ease-in-out font-sans-serif"
+                        href={`https://www.goodreads.com/search?q=${item[0]}`} target="_blank">Good Reads</a>
+                        </h4>
                         <button onClick={() => handleShelf(i)}
                         className="hover:opacity-50 pt-3"
                         >{bookmarkIconSolid}</button>
@@ -54,7 +58,7 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
     return (
         <>
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-            className="pt-16 flex justify-center">
+            className="my-24 flex justify-center">
                 <h1>My Bookshelf</h1>
                 <p className="font-sans-serif pl-2 pt-2">{shelf.length}</p>
             </div>

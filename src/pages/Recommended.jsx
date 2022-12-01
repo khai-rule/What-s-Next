@@ -29,6 +29,8 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
         setIsOpen(true)
     };
 
+    console.log(data)
+
     //! Add/remove items to/fro bookshelf
     const handleShelf = (title, img, description, amazon, author) => {
         // Find the index of item in shelf (if any)
@@ -79,7 +81,7 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
         return (
             <>
                 <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-                className="text-left py-8 ml-16 flex">
+                className="text-left pb-4 pt-16 ml-16 flex">
                     <h2>{name}</h2>
                     <p className="font-sans-serif">{getBooksByCategories(num)?.length}</p>
                 </div>
@@ -98,8 +100,6 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
         ["Advice, How-To", 6],
         ["Series", 9],
         ["Young-Adult", 10],
-        ["Business", 13],
-        ["Graphic and Mangas", 14]
     ]
 
     return (
@@ -108,9 +108,14 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
         <BookInfoModal open={isOpen} bookModal={bookModal} onClose={() => setIsOpen(false)} shelf={shelf} addShelf={addShelf} removeFromShelf={removeFromShelf}>
         </BookInfoModal>
 
-        <div className="bg-pale-yellow">
-            <h1 data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-            className="text-center pt-16">Recomended</h1>
+        <div className="bg-pale-yellow my-16">
+
+            <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
+            className="flex flex-row pt-16 align-center justify-between mx-16 my-24">
+                <h1 className="text-left pr-8">Recomended</h1>
+                <p className="text-left font-sans-serif text-2xl pl-8">nextBook works with established writers and avid readers to put together a collection of books that are true to heart. We continue to push boundaries in the way we approach our collection — looking beyond traditional bestsellers and shortlived trends, into the obscure and locked treasures. Here's just but a glimpse to other worlds.</p>
+            </div>
+            
             {booksToDisplay.map((item) => {
                 return displayBooks(item[0], item[1])
             })}

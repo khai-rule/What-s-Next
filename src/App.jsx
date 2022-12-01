@@ -7,6 +7,9 @@ import BookInfo from './pages/BookInfo';
 import Recommended from './pages/Recommended';
 import Bookshelf from './pages/Bookshelf';
 import AllBooks from './pages/AllBooks';
+import PageNotFound from './pages/PageNotFound';
+import Construction from './pages/Construction';
+
 
 function App() {
   const [displayBookInfo, setDisplayBookInfo] = useState("wha");
@@ -38,6 +41,9 @@ function App() {
         <Route path="/books/recommended" element={<Recommended bookInfo={getData} addShelf={addShelf} shelf={shelf} removeFromShelf={removeFromShelf}/>} />
         <Route path="/bookshelf" element={<Bookshelf removeFromShelf={removeFromShelf} shelf={shelf}/>} />
         <Route path="/books/allbooks" element={<AllBooks bookInfo={getData} addShelf={addShelf} shelf={shelf} removeFromShelf={removeFromShelf}/>} />
+        <Route path="*" element={<PageNotFound />} />
+        <Route path="/reviews" element={<Construction />} />
+        <Route path="find" element={<Construction />} />
       </Route>
       </Routes>
     </BrowserRouter>

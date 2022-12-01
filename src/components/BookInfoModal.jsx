@@ -2,12 +2,13 @@
 
 const BookInfoModal = ( {open, onClose, bookModal, shelf, addShelf, removeFromShelf} ) => {
     
+    
     // Book Info
     const bookImg = bookModal[1]
     const bookTitle = bookModal[0]
     const bookAuthor = bookModal[4] 
     const bookDescription = bookModal[2]
-    // Buy links
+    // Buy
     const amazon = bookModal[3]
 
     //! Save Icons
@@ -51,16 +52,20 @@ const BookInfoModal = ( {open, onClose, bookModal, shelf, addShelf, removeFromSh
                     <div className="flex items-center flex-col pb-24 mx-0 h-5/6">
                         <img src={bookImg} alt={`${bookTitle}-cover`} />
                     </div>
-                    <div className="w-1/3 py-16 pl-16">
+                    <div className="w-1/3 py-auto pl-16">
                         <h1 className="text-4xl text-pale-yellow">{capitaliseFirstLetter(bookTitle)}</h1>
                         <h4 className="py-4 hover:opacity-50 cursor-pointer text-pale-yellow transition duration-300 ease-in-out">{bookAuthor}</h4>
                         <p className="pb-4 text-pale-yellow"
                         >{bookDescription}</p>
                         <h3 className="pb-2 text-pale-yellow"
-                        >Buy it on:</h3>
+                        >Check it out on:</h3>
                         <h4>
                         <a className="hover:opacity-50 text-pale-yellow transition duration-300 ease-in-out font-sans-serif"
                         href={amazon} target="_blank">Amazon</a>
+                        </h4>
+                        <h4 className="pt-1">
+                        <a className="hover:opacity-50 text-pale-yellow transition duration-300 ease-in-out font-sans-serif"
+                        href={`https://www.goodreads.com/search?q=${bookTitle}`} target="_blank">Good Reads</a>
                         </h4>
                         <button 
                         className="hover:opacity-50 transition duration-300 ease-in-out pt-4"
