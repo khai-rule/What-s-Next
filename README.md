@@ -1,4 +1,4 @@
-# Project #2: React Application
+# Project #2: nextBook
 
 ## Project Brief:
 
@@ -38,7 +38,37 @@ The following technologies were used for this project:
 
 ### Wireframes
 <img src="https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/home-page.png" width="100">
-![overview page](https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/overview-page.png?raw=true)
-![book info page](https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/book-info-page.png?raw=true)
+<img src="https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/overview-page.png" width="100">
+<img src="https://raw.githubusercontent.com/khai-rule/What-s-Next/main/src/img/book-info-page.png" width="100">
 
+Adobe XD were used to quickly establish the look and feel of the website. Subsequently, other style adjustments were done in react.
 
+### Why nextBook?
+"As a reader, I want to quickly find my next book that are to my liking so that I won't waste precious time browsing for days."
+
+Website Requirement
+```
+- Browse through selected genres
+- Book recommendations from other readers
+- Book description is visible while browsing so user does not have to click and break their browsing flow
+- User can shortlist books that caught their attention and continue browsing
+```
+
+nextBook checks all the boxes to allow readers have a pleasant experience finding their next read.
+
+ ## Problem-Solving Strategy
+
+ The wireframe was used as a baseline to set the essential pages which are the utmost priority in fulfiling the users' needs. More pages were added later to supplement and further improve the experience.
+
+ The codes for each pages were first written in a single component to simplify the workflow and get everything to work as it should. When a part of the component is needed in another page, it is then extracted and form its own component so as to avoid repetitive code. Further fragmentations were then made to organise and allow easy navigation for others. 
+
+ ## Creator's Note
+
+1. The website function as an aspiration to what it aims to achieve. Therefore, the content does not accurately portray what the title suggest, mostly due to the API limited options. 
+
+---
+
+## Resources Used
+API - https://developer.nytimes.com/docs/books-product/1/overview
+Icons - https://heroicons.com
+Scrolling Animation - https://github.com/michalsnik/aos
