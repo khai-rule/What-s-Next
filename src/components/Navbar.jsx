@@ -6,12 +6,14 @@ function TopNavbar( {shelf} ) {
 
   //TODO link shelf to here to display items in bookshelf on navbar
   const location = useLocation();
+  
   const inShelf = () => {
     if (shelf.length === 0) {
       return
     } else {
       return (
-        <p>2</p>
+        <p className="font-sans-serif text-sm ml-1"
+        >{shelf.length}</p>
       )
     }
   }
@@ -86,7 +88,7 @@ function TopNavbar( {shelf} ) {
                 <Link to="/find" className={location.pathname === "/find" ? "flex pt-5 px-4 opacity-50 text-lg" : "flex pt-5 px-4 hover:opacity-50 text-lg transition duration-300 ease-in-out"}>Find</Link>
                 {genresDropdown()}
                 <Link to="/reviews" className={location.pathname === "/reviews" ? "flex pt-5 px-4 opacity-50 text-lg" : "flex pt-5 px-4 hover:opacity-50 text-lg transition duration-300 ease-in-out"}>Reviews</Link>
-                <Link to="/bookshelf" className={location.pathname === "/bookshelf" ? "flex pt-5 px-4 mr-12 opacity-50 text-lg" : "flex pt-5 px-4 mr-12 hover:opacity-50 text-lg transition duration-300 ease-in-out"}>My Bookshelf {inShelf}</Link>
+                <Link to="/bookshelf" className={location.pathname === "/bookshelf" ? "flex pt-5 px-4 mr-12 opacity-50 text-lg" : "flex pt-5 px-4 mr-12 hover:opacity-50 text-lg transition duration-300 ease-in-out"}>My Bookshelf {inShelf()}</Link>
             </div>
         </nav>
     </div>

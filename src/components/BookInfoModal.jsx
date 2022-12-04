@@ -1,4 +1,5 @@
-    import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter"
+import capitaliseFirstLetter from "../utilities/capitaliseFirstLetter"
+import ReactTooltip from 'react-tooltip';
 
 const BookInfoModal = ( {open, onClose, bookModal, shelf, addShelf, removeFromShelf} ) => {
     
@@ -67,11 +68,12 @@ const BookInfoModal = ( {open, onClose, bookModal, shelf, addShelf, removeFromSh
                         <a className="hover:opacity-50 text-pale-yellow transition duration-300 ease-in-out font-sans-serif"
                         href={`https://www.goodreads.com/search?q=${bookTitle}`} target="_blank">Good Reads</a>
                         </h4>
-                        <button 
+                        <button data-tip={shelf.some(title => title[0] === bookTitle) ? "Remove from Bookshelf" : "Add to Bookshelf"}
                         className="hover:opacity-50 transition duration-300 ease-in-out pt-4"
                         onClick={() => handleShelf(bookTitle, bookImg, bookDescription, amazon, bookAuthor)}
                         >{shelf.some(title => title[0] === bookTitle) ? bookmarkIconSolid : bookmarkIconOutline}
                         </button>
+                        <ReactTooltip className="!bg-pale-yellow !rounded-none !ml-6 !text-fgreen" arrowColor="!pale-yellow" place="right"/> 
                     </div>
                 </div>
 

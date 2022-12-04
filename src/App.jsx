@@ -12,7 +12,7 @@ import Construction from './pages/Construction';
 
 
 function App() {
-  const [displayBookInfo, setDisplayBookInfo] = useState("wha");
+  const [displayBookInfo, setDisplayBookInfo] = useState("");
   const [shelf, setShelf] = useState([])
   
   const addShelf = (book) => {

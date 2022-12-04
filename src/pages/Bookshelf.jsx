@@ -1,5 +1,6 @@
-import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter"
+import capitaliseFirstLetter from "../utilities/capitaliseFirstLetter"
 import { useNavigate } from "react-router-dom";
+import ReactTooltip from 'react-tooltip';
 
 const Bookshelf = ( {removeFromShelf, shelf} ) => {
 
@@ -12,10 +13,43 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
     const handleShelf = (i) => {
         removeFromShelf(i)
     }
+
+    //! Map out shelf
+    const displayItems = () => {
+        const toDisplay = shelf.map((item, i) => {
+        const title = item[0]
+        const img = item[1]
+        const author = item[4]
+        const description = item[2]
+        const amazon = item[3]
+        return (
+                <div className="flex-shrink-0 w-1/5 mx-4 pt-8">
+                    <img key={title} src={img} />
+                    <h1 className="py-2 pt-3 text-2xl">{capitaliseFirstLetter(title)}</h1>
+                    <h4 className="hover:opacity-50 cursor-pointer"
+                    >{author}</h4>
+                    <p className="py-2">{description}</p>
+                    <h3 className="text-xl pb-2">Check it out on:</h3>
+                    <h4 className="hover:opacity-50"
+                    ><a href={amazon} target="_blank">Amazon</a></h4>
+                    <h4 className="pt-1">
+                    <a className="hover:opacity-50 transition duration-300 ease-in-out font-sans-serif"
+                    href={`https://www.goodreads.com/search?q=${title}`} target="_blank">Good Reads</a>
+                    </h4>
+                    <button data-tip="Remove from Bookshelf"
+                    onClick={() => handleShelf(i)}
+                    className="hover:opacity-50 pt-3"
+                    >{bookmarkIconSolid}</button>
+                    <ReactTooltip className="!bg-fgreen !rounded-none !ml-6" arrowColor="!fgreen" place="right"/> 
+                </div>
+            )
+        })
+        return toDisplay
+    }
     
-    //TODO organise the item index
+    //! Display : if empty, return first otherwise, return second
     const books = () => {
-        if (shelf.length <= 0) {
+        if (shelf.length < 1) {
             return (
                 <div className="text-center">
                     <h2 data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
@@ -31,25 +65,7 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
             return (
                 <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
                 className="text-left py-16 mx-auto flex justify-center flex-wrap">
-                {shelf.map((item, i) => (
-                    <div className="flex-shrink-0 w-1/5 ml-8 pt-8">
-                        <img className="" key={item[0]} src={item[1]} />
-                        <h1 className="py-2 pt-3 text-2xl">{capitaliseFirstLetter(item[0])}</h1>
-                        <h4 className="hover:opacity-50 cursor-pointer"
-                        >{item[4]}</h4>
-                        <p className="py-2">{item[2]}</p>
-                        <h3 className="text-xl pb-2">Check it out on:</h3>
-                        <h4 className="hover:opacity-50"
-                        ><a href={item[3]} target="_blank">Amazon</a></h4>
-                        <h4 className="pt-1">
-                        <a className="hover:opacity-50 transition duration-300 ease-in-out font-sans-serif"
-                        href={`https://www.goodreads.com/search?q=${item[0]}`} target="_blank">Good Reads</a>
-                        </h4>
-                        <button onClick={() => handleShelf(i)}
-                        className="hover:opacity-50 pt-3"
-                        >{bookmarkIconSolid}</button>
-                    </div>
-                ))}
+                    {displayItems()}
                 </div>
             )
         }

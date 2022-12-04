@@ -1,6 +1,6 @@
 import useFetch from "../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
-import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter";
+import capitaliseFirstLetter from "../utilities/capitaliseFirstLetter";
 import Loading from "./Loading";
 import LoadingFailed from "./LoadingFailed";
 

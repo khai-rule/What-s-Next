@@ -1,10 +1,10 @@
 import useFetch from "../hooks/useFetch";
 import BookInfoModal from "../components/BookInfoModal";
 import { useState } from "react";
-import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter";
+import capitaliseFirstLetter from "../utilities/capitaliseFirstLetter";
 import Loading from "../components/Loading";
 import LoadingFailed from "../components/LoadingFailed";
-
+import ReactTooltip from 'react-tooltip';
 
 const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
 
@@ -29,8 +29,6 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
         setIsOpen(true)
     };
 
-    console.log(data)
-
     //! Add/remove items to/fro bookshelf
     const handleShelf = (title, img, description, amazon, author) => {
         // Find the index of item in shelf (if any)
@@ -53,22 +51,28 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
     //! Get The Books by Categories
     const getBooksByCategories = (num) => {
         const booksByCategories = data?.results?.lists[num]?.books?.map(item => {
+            const title = item?.title
+            const img = item?.book_image
+            const author = item?.author
+            const description = item?.description
+            const amazon = item?.amazon_product_url
             return (
                 <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
                 className="flex-shrink-0 w-1/6 ml-16">
-                    <img onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
-                    key={item?.title}
-                    src={item?.book_image}
+                    <img onClick={() => handleClick(title, img, description, amazon, author)}
+                    key={title}
+                    src={img}
                     className="cursor-pointer -z-10 hover:opacity-50 hover:z-0 transition duration-300 ease-in-out"/>
-                    <h3 onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
+                    <h3 onClick={() => handleClick(title, img, description, amazon, author)}
                     className="py-2 cursor-pointer">{capitaliseFirstLetter(item?.title)}</h3>
-                    <h4 className="hover:opacity-50 cursor-pointer transition duration-300 ease-in-out">{item?.author}</h4>
-                    <p className="py-2 pb-4">{item?.description}</p>
-                    <button 
-                    className="hover:opacity-50 transition duration-300 ease-in-out"
-                    onClick={() => handleShelf(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
+                    <h4 className="hover:opacity-50 cursor-pointer transition duration-300 ease-in-out">{author}</h4>
+                    <p className="py-2">{description}</p>
+                    <button data-tip={shelf.some(title => title[0] === item?.title) ? "Remove from Bookshelf" : "Add to Bookshelf"}
+                    className="hover:opacity-50 transition duration-300 ease-in-out py-2"
+                    onClick={() => handleShelf(title, img, description, amazon, author)}
                     >{shelf.some(title => title[0] === item?.title) ? bookmarkIconSolid : bookmarkIconOutline}
                     </button>
+                    <ReactTooltip className="!bg-fgreen !rounded-none !ml-6" arrowColor="!fgreen" place="right"/> 
                 </div>
 
             );
@@ -87,7 +91,7 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
                 </div>
                 <hr data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
                 className="mx-16 mb-8 border-fgreen"></hr>
-                <div className="flex overflow-x-scroll space-x-8">
+                <div className="flex overflow-x-scroll space-x-8 ">
                     {getBooksByCategories(num)}   
                 </div>
             </>
@@ -112,8 +116,8 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
 
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
             className="flex flex-row pt-16 align-center justify-between mx-16 my-24">
-                <h1 className="text-left pr-8">Recomended</h1>
-                <p className="text-left font-sans-serif text-2xl pl-8">nextBook works with established writers and avid readers to put together a collection of books that are true to heart. We continue to push boundaries in the way we approach our collection — looking beyond traditional bestsellers and shortlived trends, into the obscure and locked treasures. Here's just but a glimpse to other worlds.</p>
+                <h1 className="text-left mr-8">Recomended</h1>
+                <p className="text-left font-sans-serif text-2xl ml-8">nextBook works with established writers and avid readers to put together a collection of books that are true to heart. We continue to push boundaries in the way we approach our collection — looking beyond traditional bestsellers and shortlived trends, into the obscure and locked treasures. Here's just but a glimpse to other worlds.</p>
             </div>
             
             {booksToDisplay.map((item) => {

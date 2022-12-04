@@ -2,8 +2,9 @@ import Loading from "../components/Loading";
 import LoadingFailed from "../components/LoadingFailed";
 import useFetch from "../hooks/useFetch";
 import { useState } from 'react';
-import capitaliseFirstLetter from "../hooks/capitaliseFirstLetter";
+import capitaliseFirstLetter from "../utilities/capitaliseFirstLetter";
 import BookInfoModal from "../components/BookInfoModal";
+import ReactTooltip from 'react-tooltip';
 
 const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
 
@@ -68,7 +69,7 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
             const amazon = item?.amazon_product_url
             return (
                 <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-                className="flex-shrink-0 w-1/6 h-fit ml-8">
+                className="flex-shrink-0 w-1/6 h-fit m-4">
                     <img onClick={() => handleClick(title, img, description, amazon, author)}
                     key={title}
                     src={img}
@@ -76,12 +77,13 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
                     <h3 onClick={() => handleClick(title, img, description, amazon, author)}
                     className="py-2 cursor-pointer">{capitaliseFirstLetter(title)}</h3>
                     <h4 className="hover:opacity-50 cursor-pointer transition duration-300 ease-in-out">{author}</h4>
-                    <p className="py-2 pb-4">{description}</p>
-                    <button 
-                    className="hover:opacity-50 transition duration-300 ease-in-out pb-16"
+                    <p className="py-2">{description}</p>
+                    <button data-tip={shelf.some(title => title[0] === item?.title) ? "Remove from Bookshelf" : "Add to Bookshelf"}
+                    className="hover:opacity-50 transition duration-300 ease-in-out py-2"
                     onClick={() => handleShelf(title, img, description, amazon, author)}
                     >{shelf.some(title => title[0] === item?.title) ? bookmarkIconSolid : bookmarkIconOutline}
                     </button>
+                    <ReactTooltip className="!bg-fgreen !rounded-none !ml-6" arrowColor="!fgreen" place="right"/> 
                 </div>
                 );
             });
