@@ -72,12 +72,12 @@ function TopNavbar( {shelf} ) {
     data-aos="fade-in" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
         <nav className="h-16 z-10 flex">
             <div className="flex mr-auto">
-                <Link to="/" className="absolute pt-5 pl-16 transition duration-300 ease-in-out">
-                <img className="h-8 hover:opacity-0"
+                <Link to="/" className="absolute pt-5 ml-16 md:ml-8">
+                <img className="h-8 hover:opacity-0 transition duration-300 ease-in-out"
                 src={location.pathname === "/" ? LogoActive : LogoMain}
                 alt="NextBook Logo"/>
                 </Link>
-                <Link to="/" className="absolute pt-5 pl-16">
+                <Link to="/" className="absolute pt-5 ml-16 md:ml-8">
                 <img className="h-8 opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
                 src={location.pathname === "/" ? LogoMain : LogoActive}
                 alt="NextBook Logo"/>

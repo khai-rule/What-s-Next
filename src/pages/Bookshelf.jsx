@@ -75,8 +75,8 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
         <>
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
             className="my-24 flex justify-center">
-                <h1>My Bookshelf</h1>
-                <p className="font-sans-serif pl-2 pt-2">{shelf.length}</p>
+                <h1 className="md:mb-8 md:text-5xl">My Bookshelf</h1>
+                <p className="font-sans-serif pl-2">{shelf.length}</p>
             </div>
             {books()}
         </>

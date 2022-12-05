@@ -26,6 +26,11 @@ h3 {
     font-size: 24px;
 }
 
+h4 {
+    font-family: "Karla";
+    font-size: 16px;
+}
+
 p {
     font-family: "EB Garamond";
     font-size: 18px;
@@ -43,6 +48,11 @@ p {
     
     h3 {
         font-size: 18px;
+    }
+
+    h4 {
+        font-family: "Karla";
+        font-size: 14px;
     }
     
     p {

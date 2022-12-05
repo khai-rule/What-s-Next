@@ -58,7 +58,7 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
             const amazon = item?.amazon_product_url
             return (
                 <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-                className="flex-shrink-0 w-1/6 ml-16 md:w-1/3">
+                className="flex-shrink-0 w-1/6 ml-16 md:w-1/3 md:ml-8">
                     <img onClick={() => handleClick(title, img, description, amazon, author)}
                     key={title}
                     src={img}
@@ -85,12 +85,12 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
         return (
             <>
                 <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-                className="text-left pb-4 pt-16 ml-16 flex">
+                className="text-left pb-4 pt-16 ml-16 flex md:ml-8">
                     <h2>{name}</h2>
                     <p className="font-sans-serif">{getBooksByCategories(num)?.length}</p>
                 </div>
                 <hr data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-                className="mx-16 mb-8 border-fgreen"></hr>
+                className="mx-16 mb-8 border-fgreen md:mx-8"></hr>
                 <div className="flex overflow-x-scroll space-x-8 ">
                     {getBooksByCategories(num)}   
                 </div>
@@ -115,8 +115,8 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
         <div className="bg-pale-yellow my-16">
 
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-            className="flex flex-row pt-16 align-center justify-between mx-16 my-24 md:flex-col md:my-10">
-                <h1 className="text-left mr-8 md:mb-8 lg:text-5xl">Recomended</h1>
+            className="flex flex-row pt-16 align-center justify-between mx-16 my-24 md:flex-col md:my-10 md:mx-8">
+                <h1 className="text-left mr-8 md:mb-8 md:text-5xl">Recomended</h1>
                 <p className="text-left font-sans-serif text-2xl ml-8 md:ml-0">nextBook works with established writers and avid readers to put together a collection of books that are true to heart. We continue to push boundaries in the way we approach our collection — looking beyond traditional bestsellers and shortlived trends, into the obscure and locked treasures. Here's just but a glimpse to other worlds.</p>
             </div>
             
