@@ -4,9 +4,9 @@ import LogoMain from "../img/logo-main-01.svg"
 
 function TopNavbar( {shelf} ) {
 
-  //TODO link shelf to here to display items in bookshelf on navbar
   const location = useLocation();
   
+  // Show number of items in shelf on navbar
   const inShelf = () => {
     if (shelf.length === 0) {
       return
@@ -31,7 +31,6 @@ function TopNavbar( {shelf} ) {
             <a 
               className="dropdown-toggle py-2.5 text-fgreen text-lg hover:opacity-50 transition duration-300 ease-in-out flex items-center pt-5 px-4" 
               href="#"
-              type="button"
               id="dropdownMenuButton2"
               data-bs-toggle="dropdown"
               aria-expanded="false">
@@ -52,12 +51,12 @@ function TopNavbar( {shelf} ) {
                 className="dropdown-menu min-w-max absolute z-50 float-left py-2 list-none text-left mt-1 hidden m-0"
                 aria-labelledby="dropdownMenuButton2">
               <li>
-                <Link to= "/books/recommended"
+                <Link to="/books/recommended"
                 className={location.pathname === "/books/recommended" ? "dropdown-item text-sm py-2 px-4 block w-full text-fgreen opacity-50 transition duration-300 ease-in-out" : "dropdown-item text-sm py-2 px-4 block w-full text-fgreen hover:opacity-50 transition duration-300 ease-in-out"} 
                 >Recommended</Link>
               </li>
               <li>
-                <Link to= "/books/allbooks"
+                <Link to="/books/allbooks"
                 className={location.pathname === "/books/allbooks" ? "dropdown-item text-sm py-2 px-4 block w-full text-fgreen opacity-50 transition duration-300 ease-in-out" : "dropdown-item text-sm py-2 px-4 block w-full text-fgreen hover:opacity-50 transition duration-300 ease-in-out"} 
                 >All Books</Link>
               </li>

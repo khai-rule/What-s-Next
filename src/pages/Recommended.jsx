@@ -58,7 +58,7 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
             const amazon = item?.amazon_product_url
             return (
                 <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-                className="flex-shrink-0 w-1/6 ml-16">
+                className="flex-shrink-0 w-1/6 ml-16 md:w-1/3">
                     <img onClick={() => handleClick(title, img, description, amazon, author)}
                     key={title}
                     src={img}
@@ -115,9 +115,9 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
         <div className="bg-pale-yellow my-16">
 
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-            className="flex flex-row pt-16 align-center justify-between mx-16 my-24">
-                <h1 className="text-left mr-8">Recomended</h1>
-                <p className="text-left font-sans-serif text-2xl ml-8">nextBook works with established writers and avid readers to put together a collection of books that are true to heart. We continue to push boundaries in the way we approach our collection — looking beyond traditional bestsellers and shortlived trends, into the obscure and locked treasures. Here's just but a glimpse to other worlds.</p>
+            className="flex flex-row pt-16 align-center justify-between mx-16 my-24 md:flex-col md:my-10">
+                <h1 className="text-left mr-8 md:mb-8 lg:text-5xl">Recomended</h1>
+                <p className="text-left font-sans-serif text-2xl ml-8 md:ml-0">nextBook works with established writers and avid readers to put together a collection of books that are true to heart. We continue to push boundaries in the way we approach our collection — looking beyond traditional bestsellers and shortlived trends, into the obscure and locked treasures. Here's just but a glimpse to other worlds.</p>
             </div>
             
             {booksToDisplay.map((item) => {

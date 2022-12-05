@@ -30,3 +30,22 @@ p {
     font-family: "EB Garamond";
     font-size: 18px;
 }
+
+
+@media only screen and (max-width: 767px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+    
+    p {
+        font-size: 14px;
+    }
+}

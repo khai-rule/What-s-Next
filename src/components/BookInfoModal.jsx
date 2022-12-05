@@ -39,47 +39,46 @@ const BookInfoModal = ( {open, onClose, bookModal, shelf, addShelf, removeFromSh
     if (!open) return null
 
     return (
-        <div className="z-100"
+        <div className="z-50"
         data-aos="fade-in" data-aos-duration="200" data-aos-easing="ease-in-out" data-aos-once="true">
-        <div className='fixed inset-0 z-50 bg-pale-yellow bg-opacity-75'>
+            <div className='fixed inset-0 z-50 bg-pale-yellow bg-opacity-75'>
 
-            <div className="z-1000 m-auto mt-36 max-w-screen-lg bg-fgreen">
+                <div className="z-50 m-auto max-w-screen-lg bg-fgreen">
+                    <button onClick={onClose}
+                    className="text-left py-8 pl-16 hover:opacity-50 z-50 text-pale-yellow transition duration-300 ease-in-out">Back
+                    </button>
 
-                <button onClick={onClose}
-                className="text-left py-8 pl-16 hover:opacity-50 z-50 text-pale-yellow transition duration-300 ease-in-out">Back
-                </button>
-
-                <div className="flex m-auto justify-center">
-                    <div className="flex items-center flex-col pb-24 mx-0 h-5/6">
-                        <img src={bookImg} alt={`${bookTitle}-cover`} />
+                    <div className="flex justify-center">
+                        <div className="flex items-center flex-col pb-24 mx-0 h-5/6">
+                            <img src={bookImg} alt={`${bookTitle}-cover`} />
+                        </div>
+                        <div className="w-1/3 py-auto pl-16">
+                            <h1 className="text-4xl text-pale-yellow">{capitaliseFirstLetter(bookTitle)}</h1>
+                            <h4 className="py-4 hover:opacity-50 cursor-pointer text-pale-yellow transition duration-300 ease-in-out">{bookAuthor}</h4>
+                            <p className="pb-4 text-pale-yellow"
+                            >{bookDescription}</p>
+                            <h3 className="pb-2 text-pale-yellow"
+                            >Check it out on:</h3>
+                            <h4>
+                            <a className="hover:opacity-50 text-pale-yellow transition duration-300 ease-in-out font-sans-serif"
+                            href={amazon} target="_blank">Amazon</a>
+                            </h4>
+                            <h4 className="pt-1">
+                            <a className="hover:opacity-50 text-pale-yellow transition duration-300 ease-in-out font-sans-serif"
+                            href={`https://www.goodreads.com/search?q=${bookTitle}`} target="_blank">Good Reads</a>
+                            </h4>
+                            <button data-tip={shelf.some(title => title[0] === bookTitle) ? "Remove from Bookshelf" : "Add to Bookshelf"}
+                            className="hover:opacity-50 transition duration-300 ease-in-out pt-4"
+                            onClick={() => handleShelf(bookTitle, bookImg, bookDescription, amazon, bookAuthor)}
+                            >{shelf.some(title => title[0] === bookTitle) ? bookmarkIconSolid : bookmarkIconOutline}
+                            </button>
+                            <ReactTooltip className="!bg-pale-yellow !rounded-none !ml-6 !text-fgreen" arrowColor="!pale-yellow" place="right"/> 
+                        </div>
                     </div>
-                    <div className="w-1/3 py-auto pl-16">
-                        <h1 className="text-4xl text-pale-yellow">{capitaliseFirstLetter(bookTitle)}</h1>
-                        <h4 className="py-4 hover:opacity-50 cursor-pointer text-pale-yellow transition duration-300 ease-in-out">{bookAuthor}</h4>
-                        <p className="pb-4 text-pale-yellow"
-                        >{bookDescription}</p>
-                        <h3 className="pb-2 text-pale-yellow"
-                        >Check it out on:</h3>
-                        <h4>
-                        <a className="hover:opacity-50 text-pale-yellow transition duration-300 ease-in-out font-sans-serif"
-                        href={amazon} target="_blank">Amazon</a>
-                        </h4>
-                        <h4 className="pt-1">
-                        <a className="hover:opacity-50 text-pale-yellow transition duration-300 ease-in-out font-sans-serif"
-                        href={`https://www.goodreads.com/search?q=${bookTitle}`} target="_blank">Good Reads</a>
-                        </h4>
-                        <button data-tip={shelf.some(title => title[0] === bookTitle) ? "Remove from Bookshelf" : "Add to Bookshelf"}
-                        className="hover:opacity-50 transition duration-300 ease-in-out pt-4"
-                        onClick={() => handleShelf(bookTitle, bookImg, bookDescription, amazon, bookAuthor)}
-                        >{shelf.some(title => title[0] === bookTitle) ? bookmarkIconSolid : bookmarkIconOutline}
-                        </button>
-                        <ReactTooltip className="!bg-pale-yellow !rounded-none !ml-6 !text-fgreen" arrowColor="!pale-yellow" place="right"/> 
-                    </div>
+
                 </div>
 
             </div>
-
-        </div>
         </div>
     );
 }
