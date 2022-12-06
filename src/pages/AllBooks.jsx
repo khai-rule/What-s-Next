@@ -75,7 +75,7 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
                     src={img}
                     className="cursor-pointer -z-10 hover:opacity-50 hover:z-0 transition duration-300 ease-in-out"/>
                     <h3 onClick={() => handleClick(title, img, description, amazon, author)}
-                    className="py-2 cursor-pointer">{capitaliseFirstLetter(title)}</h3>
+                    className="py-2 cursor-pointer xl:text-xl text-2xl">{capitaliseFirstLetter(title)}</h3>
                     <h4 className="hover:opacity-50 cursor-pointer transition duration-300 ease-in-out">{author}</h4>
                     <p className="py-2">{description}</p>
                     <button data-tip={shelf.some(title => title[0] === item?.title) ? "Remove from Bookshelf" : "Add to Bookshelf"}

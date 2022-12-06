@@ -29,38 +29,38 @@ function TopNavbar( {shelf} ) {
   const mobileMenu = () => {
     if (openMenu) {
       return (
-        <div data-aos="fade-in" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
+        <div data-aos="fade-in" data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-once="true">
           <div className='fixed inset-0 z-1 bg-fgreen z-50 hidden md:flex flex-col justify-center items-center'>
             <button onClick={() => handleClick(false)}
             className="text-pale-yellow text-lg absolute right-8 top-5">Back</button>
             <div className="justify-center items-center flex text-center">
-              <ul>
-              <li>
+              <ul data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true">
+              <li className="m-2">
                 <Link to="/find" 
                 onClick={() => handleClick(false)}
-                className={location.pathname === "/find" ? "m-5 opacity-50 text-lg text-pale-yellow" : "text-pale-yellow m-5 hover:opacity-50 text-lg transition duration-300 ease-in-out"}>Find</Link>
+                className={location.pathname === "/find" ? "opacity-50 text-lg text-pale-yellow" : "text-pale-yellow text-lg transition duration-300 ease-in-out"}>Find</Link>
               </li>
-                <li>
+                <li className="m-2">
                   <Link to="/books/recommended"
-                  className={location.pathname === "/books/recommended" ? "text-lg m-5 text-pale-yellow opacity-50 transition duration-300 ease-in-out" : "text-lg m-5 text-pale-yellow"} 
+                  className={location.pathname === "/books/recommended" ? "text-lg text-pale-yellow opacity-50 transition duration-300 ease-in-out" : "text-lg text-pale-yellow"} 
                   onClick={() => handleClick(false)}
                   >Recommended</Link>
                 </li>
-                <li>
+                <li className="m-2">
                   <Link to="/books/allbooks"
-                  className={location.pathname === "/books/allbooks" ? "text-lg m-5 text-pale-yellow opacity-50 transition duration-300 ease-in-out" : "text-lg m-5 text-pale-yellow"} 
+                  className={location.pathname === "/books/allbooks" ? "text-lg m-5 text-pale-yellow opacity-50 transition duration-300 ease-in-out" : "text-lg text-pale-yellow"} 
                   onClick={() => handleClick(false)}
                   >All Books</Link>
                 </li>
-                <li>
+                <li className="m-2">
                   <Link to="/reviews" 
                   onClick={() => handleClick(false)}
-                  className={location.pathname === "/reviews" ? "m-5 opacity-50 text-lg text-pale-yellow" : "text-pale-yellow m-5 hover:opacity-50 text-lg transition duration-300 ease-in-out"}>Reviews</Link>
+                  className={location.pathname === "/reviews" ? "opacity-50 text-lg text-pale-yellow" : "text-pale-yellow text-lg transition duration-300 ease-in-out"}>Reviews</Link>
                 </li>
-                <li>
+                <li className="m-2">
                   <Link to="/bookshelf" 
                   onClick={() => handleClick(false)}
-                  className={location.pathname === "/bookshelf" ? "m-5 opacity-50 text-lg text-pale-yellow" : "text-pale-yellow m-5"}>My Bookshelf {inShelf()}</Link>
+                  className={location.pathname === "/bookshelf" ? "opacity-50 text-lg text-pale-yellow" : "text-pale-yellow"}>My Bookshelf</Link>
                 </li>
               </ul>
             </div>
