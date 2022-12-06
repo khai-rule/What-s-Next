@@ -41,18 +41,18 @@ const BookInfoModal = ( {open, onClose, bookModal, shelf, addShelf, removeFromSh
     return (
         <div className="z-50"
         data-aos="fade-in" data-aos-duration="200" data-aos-easing="ease-in-out" data-aos-once="true">
-            <div className='fixed inset-0 z-50 bg-pale-yellow bg-opacity-75'>
+            <div className='fixed h-screen w-screen inset-0 z-50 bg-pale-yellow bg-opacity-75'>
 
-                <div className="z-50 m-auto max-w-screen-lg bg-fgreen">
+                <div className="z-50 m-auto w-8/12 bg-fgreen">
                     <button onClick={onClose}
-                    className="text-left py-8 pl-16 hover:opacity-50 z-50 text-pale-yellow transition duration-300 ease-in-out">Back
+                    className="text-left pl-16 hover:opacity-50 z-50 text-pale-yellow transition duration-300 ease-in-out">Back
                     </button>
 
-                    <div className="flex justify-center">
-                        <div className="flex items-center flex-col pb-24 mx-0 h-5/6">
+                    <div className="flex justify-center m-auto">
+                        <div className="flex items-center flex-col mx-8 my-16">
                             <img src={bookImg} alt={`${bookTitle}-cover`} />
                         </div>
-                        <div className="w-1/3 py-auto pl-16">
+                        <div className="w-1/3 py-auto mx-8 my-16">
                             <h1 className="text-4xl text-pale-yellow">{capitaliseFirstLetter(bookTitle)}</h1>
                             <h4 className="py-4 hover:opacity-50 cursor-pointer text-pale-yellow transition duration-300 ease-in-out">{bookAuthor}</h4>
                             <p className="pb-4 text-pale-yellow"

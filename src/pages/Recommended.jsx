@@ -91,7 +91,7 @@ const Bestsellers = ( {addShelf, shelf, removeFromShelf} ) => {
                 </div>
                 <hr data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
                 className="mx-16 mb-8 border-fgreen md:mx-8"></hr>
-                <div className="flex overflow-x-scroll space-x-8 ">
+                <div className="flex overflow-x-scroll space-x-8 md:space-x-6">
                     {getBooksByCategories(num)}   
                 </div>
             </>

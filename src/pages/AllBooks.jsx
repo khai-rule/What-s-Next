@@ -69,7 +69,7 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
             const amazon = item?.amazon_product_url
             return (
                 <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-                className="flex-shrink-0 w-1/6 h-fit m-4">
+                className="flex-shrink-0 w-1/6 xl:w-1/5 h-fit m-4 lg:w-1/3">
                     <img onClick={() => handleClick(title, img, description, amazon, author)}
                     key={title}
                     src={img}
@@ -95,7 +95,7 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
         return (
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
             className="w-96 sticky top-16 -z-1">
-            <h3 className="flex pl-16 pt-8 pb-4">Select Genres</h3>
+            <h3 className="flex ml-16 md:ml-8 pt-8 pb-4">Select Genres</h3>
             {data?.results?.lists?.map(item => {
                 // Get Index of the arr in data
                 let index = ""
@@ -104,7 +104,7 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
                         index = i
                     }
                 return (
-                    <ul className="flex pl-16">
+                    <ul className="flex ml-16 md:ml-8">
                         <li key={item.display_name}
                         onClick={() => {handleSelect(index)}}
                         className={genresDisplay.includes(index) ? "cursor-pointer hover:opacity-80 transition duration-300 ease-in-out py-1" : "opacity-40 cursor-pointer hover:opacity-80 transition duration-300 ease-in-out py-1"}>
@@ -134,15 +134,15 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
             
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
             className="my-24 flex justify-center">
-                <h1>Browse Books</h1>
-                <p className="font-sans-serif pt-4">{numOfBooks()}</p>
+                <h1 className="md:mb-8 md:text-5xl">Browse Books</h1>
+                <p className="font-sans-serif">{numOfBooks()}</p>
             </div>
 
-            <div className="m-auto flex">
-                <div className="m-0 w-96">
+            <div className="m-auto flex md:block">
+                <div className="">
                     {displayGenres()}
                 </div>
-                <div className=" pt-16 flex justify-left flex-wrap ">
+                <div className=" pt-16 flex flex-wrap justify-left md:justify-center">
                     {genresDisplay.map(item => {
                         return displayBooks(item)
                     })}
