@@ -95,7 +95,7 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
         return (
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
             className="w-96 sticky top-16 -z-1">
-            <h3 className="flex ml-16 md:ml-8 pt-8 pb-4">Select Genres</h3>
+            <h3 className="flex ml-16 md:ml-4 pt-8 pb-4">Select Genres</h3>
             {data?.results?.lists?.map(item => {
                 // Get Index of the arr in data
                 let index = ""
@@ -104,7 +104,7 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
                         index = i
                     }
                 return (
-                    <ul className="flex ml-16 md:ml-8">
+                    <ul className="flex ml-16 md:ml-4">
                         <li key={item.display_name}
                         onClick={() => {handleSelect(index)}}
                         className={genresDisplay.includes(index) ? "cursor-pointer hover:opacity-80 transition duration-300 ease-in-out py-1" : "opacity-40 cursor-pointer hover:opacity-80 transition duration-300 ease-in-out py-1"}>
