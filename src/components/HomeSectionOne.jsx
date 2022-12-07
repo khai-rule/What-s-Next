@@ -64,10 +64,10 @@ const HomeBestseller = () => {
     return ( 
         <>
             <div className="flex m-auto md:block">
-                <div className="mx-8 flex justify-end flex-wrap w-6/12 md:w-auto md:my-4">
+                <div className="mx-8 flex justify-end md:justify-center flex-wrap w-6/12 md:w-auto md:my-4">
                     {bestsellerLeft}
                 </div>
-                <div className="mx-8 flex justify-start flex-wrap w-6/12 md:w-auto md:my-4">
+                <div className="mx-8 md:mx-0 flex justify-start md:justify-center flex-wrap w-6/12 md:w-auto md:my-4">
                     {bestsellerRight}
                 </div>
             </div>
