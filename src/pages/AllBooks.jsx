@@ -69,7 +69,7 @@ const GenresAll = ( {addShelf, shelf, removeFromShelf} ) => {
             const amazon = item?.amazon_product_url
             return (
                 <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-                className="flex-shrink-0 w-1/6 xl:w-1/5 h-fit m-4 lg:w-1/3">
+                className="flex-shrink-0 w-1/6 xl:w-1/5 h-fit m-4 lg:w-1/3 md:w-1/3">
                     <img onClick={() => handleClick(title, img, description, amazon, author)}
                     key={title}
                     src={img}
