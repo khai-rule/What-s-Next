@@ -23,7 +23,7 @@ const HomeBestseller = () => {
     return (
 
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-            className="flex-shrink-0 w-64 max-w-screen-sm min-w-0 ml-24">
+            className="flex-shrink-0 w-4/12 mx-8 md:mx-4 md:w-5/12 md:my-4">
                 <img
                 onClick={() => navigate("/books/recommended")}
                 key={item?.title}
@@ -42,14 +42,14 @@ const HomeBestseller = () => {
     const bestsellerLeft = data?.results?.lists[0]?.books?.slice(0, 1).map((item, i) => {
         return (
             <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-            className='flex-shrink-0 w-full min-w-full ml-96'>
+            className='flex-shrink-0 md:m-auto md:w-auto md:mb-8 w-max mx-8'>
                 <img
                 onClick={() => navigate("/books/recommended")}
                 key={item?.title}
                 src={item?.book_image}
-                className="shrink-0 cursor-pointer w-96 hover:opacity-50 transition duration-300 ease-in-out"/>
+                className="shrink-0 cursor-pointer  hover:opacity-50 transition duration-300 ease-in-out md:w-max w-128"/>
                 <h1 onClick={() => handleClick(item?.title, item?.book_image, item?.description, item?.amazon_product_url, item?.author)}
-                className="pt-6">#1 Recommended</h1>
+                className="pt-6 leading-snug">#1 Recommended</h1>
                 <h3 className="pt-1">{capitaliseFirstLetter(item?.title)}</h3>
                 <p className="pb-8 pt-3 w-80">{item?.description}</p>
                 <button onClick={() => navigate("/books/recommended")}
@@ -63,11 +63,11 @@ const HomeBestseller = () => {
 
     return ( 
         <>
-            <div className="flex m-auto">
-                <div className="m-0 flex justify-center flex-wrap">
+            <div className="flex m-auto md:block">
+                <div className="mx-8 flex justify-end flex-wrap w-6/12 md:w-auto md:my-4">
                     {bestsellerLeft}
                 </div>
-                <div className="my-0 -ml-12 flex justify-left flex-wrap">
+                <div className="mx-8 flex justify-start flex-wrap w-6/12 md:w-auto md:my-4">
                     {bestsellerRight}
                 </div>
             </div>

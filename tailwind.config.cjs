@@ -17,7 +17,11 @@ module.exports = {
       'serif': ['EB Garamond', "serif"],
       'sans-serif': ['Karla', 'sans-serif']
     },
-    extend: {},
+    extend: {
+      width: {
+        '128': '32rem',
+      }
+    },
     screens: {
       '2xl': {'max': '1535px'},
       // => @media (max-width: 1535px) { ... }

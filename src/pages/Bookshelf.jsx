@@ -23,13 +23,13 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
         const description = item[2]
         const amazon = item[3]
         return (
-                <div className="flex-shrink-0 w-1/5 mx-4 pt-8">
+                <div className="flex-shrink-0 w-1/5 md:w-1/3 mx-4 pt-8">
                     <img key={title} src={img} />
-                    <h1 className="py-2 pt-3 text-2xl">{capitaliseFirstLetter(title)}</h1>
+                    <h1 className="py-2 pt-3 text-2xl md:text-lg">{capitaliseFirstLetter(title)}</h1>
                     <h4 className="hover:opacity-50 cursor-pointer"
                     >{author}</h4>
                     <p className="py-2">{description}</p>
-                    <h3 className="text-xl pb-2">Check it out on:</h3>
+                    <h3 className="text-xl md:text-base pb-2">Check it out on:</h3>
                     <h4 className="hover:opacity-50"
                     ><a href={amazon} target="_blank">Amazon</a></h4>
                     <h4 className="pt-1">
@@ -64,7 +64,7 @@ const Bookshelf = ( {removeFromShelf, shelf} ) => {
         } else {
             return (
                 <div data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
-                className="text-left py-16 mx-auto flex justify-center flex-wrap">
+                className="text-left py-16 md:py-0 mx-auto flex justify-center flex-wrap">
                     {displayItems()}
                 </div>
             )

@@ -41,7 +41,7 @@ const BookInfoModal = ( {open, onClose, bookModal, shelf, addShelf, removeFromSh
     return (
         <div className="z-50"
         data-aos="fade-in" data-aos-duration="200" data-aos-easing="ease-in-out" data-aos-once="true">
-            <div className='fixed h-screen w-screen inset-0 z-50 bg-pale-yellow bg-opacity-75'>
+            <div className='fixed h-screen w-screen inset-0 z-50 bg-pale-yellow bg-opacity-75 md:overflow-auto'>
 
                 <div className="z-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 m-0 w-8/12 md:w-full h-min bg-fgreen">
                     <button onClick={onClose}
