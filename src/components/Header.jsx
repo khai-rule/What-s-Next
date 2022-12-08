@@ -1,4 +1,4 @@
-const Header = ( {image, header, subheader} ) => {
+const Header = ( {header, subheader} ) => {
     return (
         <div>
             <h1 data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-once="true"
