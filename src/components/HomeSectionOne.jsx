@@ -8,7 +8,7 @@ const HomeBestseller = () => {
   const navigate = useNavigate();
 
   //! NYT
-  const API_KEY = import.meta.env.VITE_API_KEY;
+  const API_KEY = process.env.VITE_API_KEY;
 
   //! Fetch Data: Top 5 bestsellers in different categories
   const { data, status } = useFetch(
