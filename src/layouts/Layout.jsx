@@ -3,13 +3,10 @@ import TopNavbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 //   <footer>footer: Made by:</footer>
-function Layout( {shelf} ) {
-
-  shelf 
-
+function Layout({ shelf }) {
   return (
     <div className="bg-pale-yellow min-h-screen">
-      <TopNavbar shelf={shelf}/>
+      <TopNavbar shelf={shelf} />
       <main>
         <Outlet />
       </main>
