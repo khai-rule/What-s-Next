@@ -10,7 +10,7 @@ const Bestsellers = ({ addShelf, shelf, removeFromShelf }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [bookModal, setBookModal] = useState([]);
 
-  const API_KEY = "SlheFCnWidTnyJMGcupkk6FkcZYvN62F";
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   //! Fetch Data: Bestsellers in different categories (about 10-15 books)
   const { data, status } = useFetch(

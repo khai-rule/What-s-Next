@@ -11,7 +11,7 @@ const GenresAll = ({ addShelf, shelf, removeFromShelf }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [bookModal, setBookModal] = useState([]);
 
-  const API_KEY = "SlheFCnWidTnyJMGcupkk6FkcZYvN62F";
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   //! Save Icons
   const bookmarkIconOutline = (

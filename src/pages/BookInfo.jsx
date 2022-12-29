@@ -13,7 +13,7 @@ const BookInfo = ({ bookInfo }) => {
   console.log("parms", code);
   console.log("info", bookInfo);
 
-  const API_KEY = "SlheFCnWidTnyJMGcupkk6FkcZYvN62F";
+  const API_KEY = import.meta.env.VITE_API_KEY;
   const { data, status } = useFetch(
     `https://api.nytimes.com/svc/books/v3/reviews.json?title=${code}&api-key=${API_KEY}`
   );
