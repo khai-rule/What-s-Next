@@ -145,7 +145,7 @@ const GenresAll = ({ addShelf, shelf, removeFromShelf }) => {
   const displayGenres = () => {
     return (
       <div
-        data-aos="fade-up"
+        data-aos="fade-right"
         data-aos-duration="600"
         data-aos-easing="ease-in-out"
         data-aos-once="true"

@@ -6,7 +6,7 @@ const Header = ({ header, subheader }) => {
         data-aos-duration="600"
         data-aos-easing="ease-in-out"
         data-aos-once="true"
-        className="text-left leading-snug mt-32 ml-16 md:mx-4 md:w-auto md:mt-16 w-1/2 font-serif"
+        className="text-8xl text-justify leading-[100px] mt-16 mx-16 md:mx-4 md:w-auto md:mt-16 md:text-4xl md:leading-snug md:text-left font-serif"
       >
         {header}
       </h1>
@@ -15,7 +15,7 @@ const Header = ({ header, subheader }) => {
         data-aos-duration="600"
         data-aos-easing="ease-in-out"
         data-aos-once="true"
-        className="text-2xl lg:text-xl text-left mt-8 mb-32 md:mb-20 leading-snug ml-16 md:mx-4 w-1/2"
+        className="text-2xl lg:text-xl text-center mt-12 mb-48 md:mb-20 leading-snug ml-16 md:mx-4 md:text-left"
       >
         {subheader}
       </h4>
