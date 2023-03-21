@@ -105,7 +105,7 @@ const Bestsellers = ({ addShelf, shelf, removeFromShelf }) => {
           <h4 className="hover:opacity-50 cursor-pointer transition duration-300 ease-in-out">
             {author}
           </h4>
-          <p className="py-2">{description}</p>
+          <p className="py-2 text-sm">{description}</p>
           <button
             data-tip={
               shelf.some((title) => title[0] === item?.title)

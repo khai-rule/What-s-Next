@@ -1,53 +1,78 @@
-import './App.css'
-import Home from './pages/Home'
+import "./App.css";
+import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from './layouts/Layout';
+import Layout from "./layouts/Layout";
 import { useState } from "react";
-import BookInfo from './pages/BookInfo';
-import Recommended from './pages/Recommended';
-import Bookshelf from './pages/Bookshelf';
-import AllBooks from './pages/AllBooks';
-import PageNotFound from './pages/PageNotFound';
-import Construction from './pages/Construction';
-
+import BookInfo from "./pages/BookInfo";
+import Recommended from "./pages/Recommended";
+import Bookshelf from "./pages/Bookshelf";
+import AllBooks from "./pages/AllBooks";
+import PageNotFound from "./pages/PageNotFound";
+import Construction from "./pages/Construction";
 
 function App() {
-  const [displayBookInfo, setDisplayBookInfo] = useState("");
-  const [shelf, setShelf] = useState([])
-  
-  const addShelf = (book) => {
-    if (shelf.some(title => title[0] === book[0])) {
-      return
-    } else {
-      setShelf([...shelf, book])
-    }
-  }  
+	const [displayBookInfo, setDisplayBookInfo] = useState("");
+	const [shelf, setShelf] = useState([]);
 
-  const removeFromShelf = (i) => {
-    shelf.splice(i, 1)
-    setShelf([...shelf])
-  }
+	const addShelf = (book) => {
+		if (shelf.some((title) => title[0] === book[0])) {
+			return;
+		} else {
+			setShelf([...shelf, book]);
+		}
+	};
 
-  const getData = (book) => (
-    setDisplayBookInfo(book)
-  )
-    
-    return (
-      <BrowserRouter>
-      <Routes>
-      <Route path="/" element={<Layout shelf={shelf}/>}>
-        <Route path="/" element={<Home bookInfo={getData}/>} />
-        <Route path="/bookinfo/title/:code" element={<BookInfo bookInfo={displayBookInfo}/>} />
-        <Route path="/books/recommended" element={<Recommended bookInfo={getData} addShelf={addShelf} shelf={shelf} removeFromShelf={removeFromShelf}/>} />
-        <Route path="/bookshelf" element={<Bookshelf removeFromShelf={removeFromShelf} shelf={shelf}/>} />
-        <Route path="/books/allbooks" element={<AllBooks bookInfo={getData} addShelf={addShelf} shelf={shelf} removeFromShelf={removeFromShelf}/>} />
-        <Route path="*" element={<PageNotFound />} />
-        <Route path="/reviews" element={<Construction />} />
-        <Route path="find" element={<Construction />} />
-      </Route>
-      </Routes>
-    </BrowserRouter>
-        )
-      }
-      
-      export default App
+	const removeFromShelf = (i) => {
+		shelf.splice(i, 1);
+		setShelf([...shelf]);
+	};
+
+	const getData = (book) => setDisplayBookInfo(book);
+
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Layout shelf={shelf} />}>
+					<Route path="/" element={<Home bookInfo={getData} />} />
+					<Route
+						path="/bookinfo/title/:code"
+						element={<BookInfo bookInfo={displayBookInfo} />}
+					/>
+					<Route
+						path="/books/recommended"
+						element={
+							<Recommended
+								bookInfo={getData}
+								addShelf={addShelf}
+								shelf={shelf}
+								removeFromShelf={removeFromShelf}
+							/>
+						}
+					/>
+					<Route
+						path="/bookshelf"
+						element={
+							<Bookshelf removeFromShelf={removeFromShelf} shelf={shelf} />
+						}
+					/>
+					<Route
+						path="/books/allbooks"
+						element={
+							<AllBooks
+								bookInfo={getData}
+								addShelf={addShelf}
+								shelf={shelf}
+								removeFromShelf={removeFromShelf}
+							/>
+						}
+					/>
+					<Route path="*" element={<PageNotFound />} />
+					<Route path="/reviews" element={<Construction />} />
+					<Route path="find" element={<Construction />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
+	);
+}
+
+export default App;
